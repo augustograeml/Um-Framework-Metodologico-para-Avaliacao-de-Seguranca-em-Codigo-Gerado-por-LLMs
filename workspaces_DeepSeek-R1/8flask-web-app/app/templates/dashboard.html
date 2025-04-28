@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Dashboard</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <div class="dashboard">
+        <h1>Welcome to your Dashboard, {{ current_user.username }}!</h1>
+        <p>Your email: {{ current_user.email }}</p>
+        <a href="{{ url_for('main.profile') }}">Go to Profile</a>
+    </div>
+    {% endblock %}
+</body>
+</html>

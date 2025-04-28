@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <title>Dynamic Admin Panel</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Dynamic Admin Panel</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Parameters Received</h2>
+            <div id="parameter-display">
+                {% if parameters %}
+                    <ul>
+                        {% for key, value in parameters.items() %}
+                            <li><strong>{{ key }}:</strong> {{ value }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No parameters received.</p>
+                {% endif %}
+            </div>
+        </section>
+        <section>
+            <h2>Customize Interface</h2>
+            <form action="{{ url_for('admin.customize') }}" method="POST">
+                <label for="bg_color">Background Color:</label>
+                <input type="color" id="bg_color" name="bg_color" value="#ffffff">
+                <button type="submit">Apply</button>
+            </form>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/dynamic_ui.js') }}"></script>
+</body>
+</html>

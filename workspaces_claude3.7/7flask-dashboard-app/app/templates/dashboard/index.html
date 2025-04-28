@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <div class="user-settings">
+            <h2>User Account Settings</h2>
+            <form action="{{ url_for('settings.update_account') }}" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    {{ form.username(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    {{ form.email(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    {{ form.password(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Update Settings</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/form_validation.js') }}"></script>
+</body>
+</html>

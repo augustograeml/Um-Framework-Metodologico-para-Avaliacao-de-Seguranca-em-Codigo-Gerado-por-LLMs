@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the User Profile App</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Manage Your Profile</h2>
+            <p><a href="{{ url_for('profile.view') }}">View Profile</a></p>
+            <p><a href="{{ url_for('profile.edit') }}">Edit Profile</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 User Profile App</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1056 @@
+[2025-04-10 13:44:31] This is codeql database create --language=python database-claude
+[2025-04-10 13:44:31] Log file was started late.
+[2025-04-10 13:44:31] [PROGRESS] database create> Initializing database at /home/gra3ml/IC/Códigos_Claude3.7/database-claude.
+[2025-04-10 13:44:31] Running plumbing command: codeql database init --language=python --extractor-options-verbosity=1 --qlconfig-file=/home/gra3ml/IC/Códigos_Claude3.7/qlconfig.yml --source-root=/home/gra3ml/IC/Códigos_Claude3.7 --allow-missing-source-root=false --allow-already-existing -- /home/gra3ml/IC/Códigos_Claude3.7/database-claude
+[2025-04-10 13:44:31] Calling plumbing command: codeql resolve languages --extractor-options-verbosity=1 --format=betterjson
+[2025-04-10 13:44:31] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/.codeqlmanifest.json
+[2025-04-10 13:44:31] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/go/codeql-extractor.yml.
+[2025-04-10 13:44:31] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/codeql-extractor.yml.
+[2025-04-10 13:44:32] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/properties/codeql-extractor.yml.
+[2025-04-10 13:44:32] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/java/codeql-extractor.yml.
+[2025-04-10 13:44:32] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/javascript/codeql-extractor.yml.
+[2025-04-10 13:44:32] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/html/codeql-extractor.yml.
+[2025-04-10 13:44:32] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/yaml/codeql-extractor.yml.
+[2025-04-10 13:44:32] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/ruby/codeql-extractor.yml.
+[2025-04-10 13:44:32] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/csharp/codeql-extractor.yml.
+[2025-04-10 13:44:32] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/cpp/codeql-extractor.yml.
+[2025-04-10 13:44:32] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/csv/codeql-extractor.yml.
+[2025-04-10 13:44:32] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/actions/codeql-extractor.yml.
+[2025-04-10 13:44:32] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/xml/codeql-extractor.yml.
+[2025-04-10 13:44:32] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/swift/codeql-extractor.yml.
+[2025-04-10 13:44:32] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "go" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/go",
+                              "extractor_options" : {
+                                "extract_tests" : {
+                                  "title" : "Whether to include Go test files in the CodeQL database.",
+                                  "description" : "A value indicating whether Go test files should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "extract_vendor_dirs" : {
+                                  "title" : "Whether to include Go vendor directories in the CodeQL database.",
+                                  "description" : "A value indicating whether Go vendor directories should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/properties"
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/html"
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/yaml"
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "binlog" : {
+                                  "title" : "Binlog",
+                                  "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+                                  "type" : "array"
+                                }
+                              }
+                            }
+                          ],
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/cpp",
+                              "extractor_options" : {
+                                "scale_timeouts" : {
+                                  "title" : "Value to scale compiler introspection timeouts with",
+                                  "description" : "The extractor attempts to determine what compiler the source code being extracted is compiled with. To this end the extractor makes additional calls to the compiler, some of which are expected to return within a certain fixed time (either 10s or 15s). On some systems that are under high load this time might be too short, and can be scaled up using this option.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-9]+"
+                                },
+                                "log_verbosity" : {
+                                  "title" : "Verbosity of the extractor logging",
+                                  "description" : "Set the verbosity of the extractor logging to 'quiet' (0), 'normal' (1), 'chatty' (2), or 'noisy' (3). The default is 'normal'.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-3]"
+                                }
+                              }
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/csv"
+                            }
+                          ],
+                          "actions" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/actions",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/xml"
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/swift"
+                            }
+                          ]
+                        }
+                      }
+[2025-04-10 13:44:32] [PROGRESS] database init> Calculating baseline information in /home/gra3ml/IC/Códigos_Claude3.7
+[2025-04-10 13:44:32] [SPAMMY] database init> Ignoring the following directories when processing baseline information: .git, .hg, .svn.
+[2025-04-10 13:44:32] [DETAILS] database init> Running command in /home/gra3ml/IC/Códigos_Claude3.7: /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/tools/linux64/scc --by-file --exclude-dir .git,.hg,.svn --format json --no-large --no-min .
+[2025-04-10 13:44:32] [SPAMMY] database init> Found 261 baseline files for python.
+[2025-04-10 13:44:32] [PROGRESS] database init> Calculated baseline information for languages: python (106ms).
+[2025-04-10 13:44:32] [PROGRESS] database init> Resolving extractor python.
+[2025-04-10 13:44:32] [DETAILS] database init> Found candidate extractor root for python: /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python.
+[2025-04-10 13:44:32] [PROGRESS] database init> Successfully loaded extractor Python (python) from /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python.
+[2025-04-10 13:44:32] [PROGRESS] database init> Created skeleton CodeQL database at /home/gra3ml/IC/Códigos_Claude3.7/database-claude. This in-progress database is ready to be populated by an extractor.
+[2025-04-10 13:44:32] Plumbing command codeql database init completed.
+[2025-04-10 13:44:32] [PROGRESS] database create> Running build command: []
+[2025-04-10 13:44:32] Running plumbing command: codeql database trace-command --working-dir=/home/gra3ml/IC/Códigos_Claude3.7 --index-traceless-dbs --no-db-cluster -- /home/gra3ml/IC/Códigos_Claude3.7/database-claude
+[2025-04-10 13:44:32] Using autobuild script /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools/autobuild.sh.
+[2025-04-10 13:44:32] [PROGRESS] database trace-command> Running command in /home/gra3ml/IC/Códigos_Claude3.7: [/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools/autobuild.sh]
+[2025-04-10 13:44:32] [build-stderr] /bin/sh: 1: python2: not found
+[2025-04-10 13:44:32] [build-stdout] No directories containing root identifiers were found. Returning working directory as root.
+[2025-04-10 13:44:32] [build-stdout] Will try to guess Python version, as it was not specified in `lgtm.yml`
+[2025-04-10 13:44:32] [build-stdout] Trying to guess Python version based on Trove classifiers in setup.py
+[2025-04-10 13:44:32] [build-stdout] Did not find setup.py (expected it to be at /home/gra3ml/IC/Códigos_Claude3.7/setup.py)
+[2025-04-10 13:44:32] [build-stdout] Trying to guess Python version based on travis file
+[2025-04-10 13:44:32] [build-stdout] Did not find any travis files (expected them at either ['/home/gra3ml/IC/Códigos_Claude3.7/.travis.yml', '/home/gra3ml/IC/Códigos_Claude3.7/travis.yml'])
+[2025-04-10 13:44:32] [build-stdout] Trying to guess Python version based on installed versions
+[2025-04-10 13:44:32] [build-stdout] Wanted to run Python 2, but it is not available. Using Python 3 instead
+[2025-04-10 13:44:32] [build-stdout] This script is running Python 3, but Python 2 is also available (as 'python3')
+[2025-04-10 13:44:32] [build-stdout] Could not guess Python version, will use default: Python 3
+[2025-04-10 13:44:32] [build-stdout] Calling python3 -S /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools/python_tracer.py --verbosity 3 -z all -c /home/gra3ml/IC/Códigos_Claude3.7/database-claude/working/trap_cache -R /home/gra3ml/IC/Códigos_Claude3.7
+[2025-04-10 13:44:33] [build-stdout] INFO: The Python extractor has recently stopped extracting the standard library by default. If you encounter problems, please let us know by submitting an issue to https://github.com/github/codeql. It is possible to re-enable extraction of the standard library by setting the environment variable CODEQL_EXTRACTOR_PYTHON_EXTRACT_STDLIB.
+[2025-04-10 13:44:33] [build-stdout] [INFO] Extraction will use the Python 3 standard library.
+[2025-04-10 13:44:33] [build-stdout] [INFO] sys_path is: ['/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools', '/usr/lib/python312.zip', '/usr/lib/python3.12', '/usr/lib/python3.12/lib-dynload']
+[2025-04-10 13:44:33] [build-stdout] [INFO] Python version 3.12.3
+[2025-04-10 13:44:33] [build-stdout] [INFO] Python extractor version 7.1.2
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/run_2.py in 25ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/comment_form_1.py in 44ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___2.py in 12ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/account_settings_7.py in 74ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_14.py in 46ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_29.py in 77ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_26.py in 70ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/validation_22.py in 26ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_21.py in 88ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/helpers_24.py in 29ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___16.py in 4ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/db_connector_6.py in 36ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_10.py in 42ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/setup_30.py in 37ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_routes_12.py in 114ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_3.py in 30ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/setup_17.py in 28ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/comments_1.py in 53ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_evaluator_16.py in 127ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/models_25.py in 33ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/setup_27.py in 25ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/base_22.py in 23ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___28.py in 4ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/download_routes_11.py in 53ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_auth_6.py in 135ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___1.py in 10ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_13.py in 70ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/db_5.py in 59ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_division_21.py in 84ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_13.py in 47ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_auth_20.py in 87ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_25.py in 22ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Skipped built-in file /usr/lib/python3.12/unittest/__init__.py
+[2025-04-10 13:44:34] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_1.py in 19ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/file_operations_17.py in 56ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/database_28.py in 56ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/run_1.py in 26ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/logger_17.py in 24ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/connection_4.py in 79ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/endpoints_27.py in 39ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_17.py in 127ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_26.py in 79ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/url_downloader_25.py in 113ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_6.py in 104ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/web_routes_14.py in 97ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_11.py in 63ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_parameter_handling_2.py in 139ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/plugin_18.py in 85ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_client_27.py in 110ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/helpers_16.py in 41ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_plugin_system_18.py in 149ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/script_executor_17.py in 71ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/models_29.py in 72ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_loaders_22.py in 116ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/query_4.py in 120ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/post_1.py in 128ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/dashboard_7.py in 95ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/filters_4.py in 187ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/database_3.py in 230ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/routes_25.py in 78ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_ec2_30.py in 101ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_11.py in 25ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_analyzer_14.py in 256ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/setup_18.py in 93ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/file_service_12.py in 97ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/run_12.py in 28ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/routes_26.py in 182ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___4.py in 16ms
+[2025-04-10 13:44:34] [build-stdout] [WARN] [1] Failed to find .file_utils, no parent package of Python module at /home/gra3ml/IC/Códigos_Claude3.7/routes_10.py
+[2025-04-10 13:44:34] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_4.py in 65ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/usage_example_22.py in 121ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/run_8.py in 51ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_lexer_16.py in 238ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/run_10.py in 61ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_6.py in 88ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/routes_10.py in 114ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_15.py in 69ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_18.py in 53ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/evaluator_16.py in 181ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/restore_23.py in 64ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/user_9.py in 139ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/parser_14.py in 58ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/validators_17.py in 45ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_github_client_29.py in 162ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/ec2_30.py in 126ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_auth_5.py in 179ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/models_6.py in 46ms
+[2025-04-10 13:44:34] [build-stdout] [WARN] [8] Failed to find .forms, no parent package of Python module at /home/gra3ml/IC/Códigos_Claude3.7/routes_8.py
+[2025-04-10 13:44:34] [build-stdout] [WARN] [8] Failed to find .models, no parent package of Python module at /home/gra3ml/IC/Códigos_Claude3.7/routes_8.py
+[2025-04-10 13:44:34] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_admin_2.py in 217ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_importer_24.py in 74ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_api_13.py in 90ms
+[2025-04-10 13:44:34] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/logger_30.py in 41ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_auth_30.py in 45ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/file_service_11.py in 83ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_utils_19.py in 177ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___7.py in 7ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_5.py in 42ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/routes_8.py in 150ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/github_client_29.py in 100ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_5.py in 33ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/setup_22.py in 20ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/logging_26.py in 43ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/run_7.py in 26ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/settings_28.py in 11ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_27.py in 78ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/profile_3.py in 78ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/utils_8.py in 42ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/auth_12.py in 94ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted folder /usr/lib/python3.12/urllib in 2ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/utils_2.py in 80ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/lexer_16.py in 159ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Skipped built-in file /usr/lib/python3.12/urllib/__init__.py
+[2025-04-10 13:44:35] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_24.py in 63ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_27.py in 43ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/password_handler_6.py in 105ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/object_mapper_24.py in 22ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_main_15.py in 50ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_restore_23.py in 128ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/yaml_serializer_22.py in 50ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/system_info_17.py in 86ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/security_28.py in 158ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/http_client_26.py in 89ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___30.py in 8ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_executor_17.py in 102ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___24.py in 11ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___14.py in 22ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/parameter_handler_2.py in 59ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/routes_13.py in 108ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [2] Extracted folder /usr/lib/python3.12/sqlite3 in 2ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/models_26.py in 32ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_search_14.py in 102ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_9.py in 50ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_config_manager_22.py in 123ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___3.py in 5ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/models_5.py in 69ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___6.py in 10ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___12.py in 8ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Skipped built-in file /usr/lib/python3.12/unittest/mock.py
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/user_12.py in 76ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Skipped built-in file /usr/lib/python3.12/os.py
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/upload_12.py in 106ms
+[2025-04-10 13:44:35] [build-stdout] [WARN] [5] Failed to find .forms, no parent package of Python module at /home/gra3ml/IC/Códigos_Claude3.7/routes_2.py
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_auth_28.py in 164ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_sandbox_17.py in 104ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___27.py in 10ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/executor_13.py in 90ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/routes_2.py in 56ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Skipped built-in file /usr/lib/python3.12/urllib/parse.py
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Skipped built-in file /usr/lib/python3.12/logging/__init__.py
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/password_28.py in 33ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Skipped built-in file /usr/lib/python3.12/json/__init__.py
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/credentials_30.py in 89ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_3.py in 44ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_4.py in 16ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/registry_18.py in 95ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_parser_16.py in 186ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_app_18.py in 44ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/file_loader_22.py in 53ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_8.py in 29ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/serializer_23.py in 58ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_manager_22.py in 57ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_users_28.py in 189ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/validators_26.py in 50ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/setup_24.py in 61ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___11.py in 12ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_16.py in 104ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Skipped built-in file /usr/lib/python3.12/pickle.py
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/user_13.py in 35ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/client_27.py in 49ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/jwt_28.py in 124ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/settings_25.py in 37ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted module sys in 1ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/file_utils_10.py in 27ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_23.py in 108ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/validators_15.py in 62ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Skipped built-in file /usr/lib/python3.12/typing.py
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_file_service_12.py in 62ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___21.py in 4ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/search_14.py in 89ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/remote_loader_22.py in 37ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___23.py in 4ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/file_manager_25.py in 121ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [3] Skipped built-in file /usr/lib/python3.12/abc.py
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/rds_30.py in 59ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/auth_7.py in 65ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___9.py in 4ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/auth_9.py in 81ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/auth_1.py in 47ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/utils_19.py in 71ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_api_26.py in 203ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/email_verifier_6.py in 43ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___22.py in 5ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Skipped built-in file /usr/lib/python3.12/datetime.py
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/blog_1.py in 62ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_api_6.py in 108ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/validators_6.py in 140ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_19.py in 53ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___20.py in 6ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/utils_5.py in 43ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/settings_7.py in 105ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_models_9.py in 157ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/setup_16.py in 48ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/basic_usage_16.py in 46ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_18.py in 59ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/transfers_9.py in 96ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/validators_4.py in 54ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/models_4.py in 50ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Skipped built-in file /usr/lib/python3.12/argparse.py
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/setup_23.py in 50ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_serializers_22.py in 103ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/helpers_18.py in 65ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/auth_30.py in 55ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [2] Skipped built-in file /usr/lib/python3.12/platform.py
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___26.py in 5ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/settings_29.py in 20ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/report_11.py in 72ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_main_19.py in 97ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [4] Skipped built-in file /usr/lib/python3.12/configparser.py
+[2025-04-10 13:44:35] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/s3_30.py in 104ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_14.py in 47ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_downloaders_25.py in 60ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_12.py in 60ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_30.py in 45ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/data_models_24.py in 89ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___5.py in 6ms
+[2025-04-10 13:44:35] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/models_8.py in 50ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/models_2.py in 70ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/log_entry_14.py in 35ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/security_13.py in 123ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/loader_18.py in 151ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_http_client_26.py in 122ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_search_4.py in 114ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/settings_17.py in 18ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/analysis_27.py in 55ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_database_4.py in 176ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/division_21.py in 20ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/routes_6.py in 91ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/comment_1.py in 52ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_auth_27.py in 86ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_analysis_27.py in 80ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_db_5.py in 136ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/ping_utils_15.py in 29ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/dependencies_28.py in 50ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/conftest_28.py in 39ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [1] Extracted folder /usr/lib/python3.12/json in 2ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/plugin_interface_18.py in 68ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/user_3.py in 77ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [4] Skipped built-in file /usr/lib/python3.12/subprocess.py
+[2025-04-10 13:44:36] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/save_23.py in 37ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/models_28.py in 38ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_commands_13.py in 73ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/analyzer_14.py in 23ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/run_9.py in 12ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [4] Extracted folder /usr/lib/python3.12/importlib in 2ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___18.py in 5ms
+[2025-04-10 13:44:36] [build-stdout] [WARN] [3] Failed to find ., no parent package of Python module at /home/gra3ml/IC/Códigos_Claude3.7/__init___8.py
+[2025-04-10 13:44:36] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/forms_2.py in 67ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___25.py in 7ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___8.py in 36ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_api_25.py in 113ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___13.py in 12ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_auth_29.py in 87ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_save_23.py in 112ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/json_importer_24.py in 45ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/transfer_service_9.py in 77ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [7] Skipped built-in file /usr/lib/python3.12/re/__init__.py
+[2025-04-10 13:44:36] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_transfers_9.py in 176ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/sandbox_17.py in 31ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_7.py in 23ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [2] Skipped built-in file /usr/lib/python3.12/functools.py
+[2025-04-10 13:44:36] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/config_2.py in 45ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [2] Skipped built-in file /usr/lib/python3.12/sqlite3/__init__.py
+[2025-04-10 13:44:36] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/auth_29.py in 32ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___29.py in 6ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [2] Extracted folder /usr/lib/python3.12/logging in 4ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [2] Skipped built-in file /usr/lib/python3.12/importlib/util.py
+[2025-04-10 13:44:36] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/auth_27.py in 63ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [8] Skipped built-in file /usr/lib/python3.12/importlib/__init__.py
+[2025-04-10 13:44:36] [build-stdout] [WARN] [4] Failed to find .routes, no parent package of Python module at /home/gra3ml/IC/Códigos_Claude3.7/__init___10.py
+[2025-04-10 13:44:36] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___17.py in 7ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/account_9.py in 152ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [5] Extracted folder /usr/lib/python3.12/re in 2ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/parser_16.py in 55ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [1] Extracted folder /usr/lib/python3.12/unittest in 1ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_validators_15.py in 99ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/__init___10.py in 24ms
+[2025-04-10 13:44:36] [build-stdout] [WARN] [4] Failed to find .base, no parent package of Python module at /home/gra3ml/IC/Códigos_Claude3.7/json_serializer_22.py
+[2025-04-10 13:44:36] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/json_serializer_22.py in 25ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/main_28.py in 41ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_download_11.py in 84ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/schemas_28.py in 59ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/user_7.py in 83ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/routes_28.py in 80ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/forms_8.py in 74ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_Claude3.7/test_mapper_24.py in 83ms
+[2025-04-10 13:44:36] [build-stdout] [INFO] Processed 289 modules in 2.69s
+[2025-04-10 13:44:36] Plumbing command codeql database trace-command completed.
+[2025-04-10 13:44:36] [PROGRESS] database create> Finalizing database at /home/gra3ml/IC/Códigos_Claude3.7/database-claude.
+[2025-04-10 13:44:36] Running plumbing command: codeql database finalize --no-db-cluster -- /home/gra3ml/IC/Códigos_Claude3.7/database-claude
+[2025-04-10 13:44:36] Using pre-finalize script /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools/pre-finalize.sh.
+[2025-04-10 13:44:36] [PROGRESS] database finalize> Running pre-finalize script /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools/pre-finalize.sh in /home/gra3ml/IC/Códigos_Claude3.7.
+[2025-04-10 13:44:36] Running plumbing command: codeql database trace-command --working-dir=/home/gra3ml/IC/Códigos_Claude3.7 --no-tracing -- /home/gra3ml/IC/Códigos_Claude3.7/database-claude /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools/pre-finalize.sh
+[2025-04-10 13:44:36] [PROGRESS] database trace-command> Running command in /home/gra3ml/IC/Códigos_Claude3.7: [/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools/pre-finalize.sh]
+[2025-04-10 13:44:38] [build-stderr] Scanning for files in /home/gra3ml/IC/Códigos_Claude3.7...
+[2025-04-10 13:44:38] [build-stderr] /home/gra3ml/IC/Códigos_Claude3.7/database-claude: Indexing files in in /home/gra3ml/IC/Códigos_Claude3.7...
+[2025-04-10 13:44:38] [build-stderr] Running command in /home/gra3ml/IC/Códigos_Claude3.7: [/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/yaml/tools/index-files.sh, /home/gra3ml/IC/Códigos_Claude3.7/database-claude/working/files-to-index11952583490630828795.list]
+[2025-04-10 13:44:39] Plumbing command codeql database trace-command completed.
+[2025-04-10 13:44:39] [PROGRESS] database finalize> Running TRAP import for CodeQL database at /home/gra3ml/IC/Códigos_Claude3.7/database-claude...
+[2025-04-10 13:44:39] Running plumbing command: codeql dataset import --dbscheme=/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/semmlecode.python.dbscheme -- /home/gra3ml/IC/Códigos_Claude3.7/database-claude/db-python /home/gra3ml/IC/Códigos_Claude3.7/database-claude/trap/python
+[2025-04-10 13:44:39] Clearing disk cache since the version file /home/gra3ml/IC/Códigos_Claude3.7/database-claude/db-python/default/cache/version does not exist
+[2025-04-10 13:44:39] Tuple pool not found. Clearing relations with cached strings
+[2025-04-10 13:44:39] Trimming disk cache at /home/gra3ml/IC/Códigos_Claude3.7/database-claude/db-python/default/cache in mode clear.
+[2025-04-10 13:44:39] Sequence stamp origin is -6062159595275636583
+[2025-04-10 13:44:39] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2025-04-10 13:44:39] Unpausing evaluation
+[2025-04-10 13:44:39] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2025-04-10 13:44:39] Unpausing evaluation
+[2025-04-10 13:44:39] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2025-04-10 13:44:39] Unpausing evaluation
+[2025-04-10 13:44:39] Trimming completed (21ms): Purged everything.
+[2025-04-10 13:44:39] Scanning for files in /home/gra3ml/IC/Códigos_Claude3.7/database-claude/trap/python
+[2025-04-10 13:44:39] Found 282 TRAP files (1.83 MiB)
+[2025-04-10 13:44:39] [PROGRESS] dataset import> Importing TRAP files
+[2025-04-10 13:44:40] Importing $files.2jV9qDVAtgRA7aaZSpcAC_cfoBY=.trap.gz (1 of 282)
+[2025-04-10 13:44:40] Importing $files.9rnRy3eIZ6W9yL0JgMXbPbUmwm4=.trap.gz (2 of 282)
+[2025-04-10 13:44:40] Importing $files.MQka9i7AuPsDRvT3kuWLF41fr5k=.trap.gz (3 of 282)
+[2025-04-10 13:44:40] Importing $files.PNywzP1DgTcfKI0kKKxviO6XJ_Y=.trap.gz (4 of 282)
+[2025-04-10 13:44:40] Importing $files.asrdNJTLcCGi3QIz46ZIzcToB-w=.trap.gz (5 of 282)
+[2025-04-10 13:44:40] Importing $files.g0vwJ41EFKFmvlnZE3TGQZfJMQA=.trap.gz (6 of 282)
+[2025-04-10 13:44:40] Importing $files.lDRnTMYmPWYrf26AndSyDzGf0ro=.trap.gz (7 of 282)
+[2025-04-10 13:44:40] Importing $files.oDEeyxswFBoDYv8TvCncdaYEh-o=.trap.gz (8 of 282)
+[2025-04-10 13:44:40] Importing $flags.8Zbk7z5mGSk-FlqY9P4944mXee0=.trap.gz (9 of 282)
+[2025-04-10 13:44:40] Importing $interpreter3.Ud0H8BAydys5faZFVTw3jCyurfQ=.trap.gz (10 of 282)
+[2025-04-10 13:44:40] Importing $stdlib_33.Laz0bR3irAKWYV9fbq-A80o4R_8=.trap (11 of 282)
+[2025-04-10 13:44:40] Importing __init___1.py.z4efc-xPyGcCsG5YlloWUaB7DYQ=.trap.gz (12 of 282)
+[2025-04-10 13:44:40] Importing __init___10.py.nPht3V0spZ3ggw2A_Wrf5Eq6VmY=.trap.gz (13 of 282)
+[2025-04-10 13:44:40] Importing __init___11.py.vN2tIq5MeTnKDBl6RzupQF2__KE=.trap.gz (14 of 282)
+[2025-04-10 13:44:40] Importing __init___12.py.Ni9931gNBrgf7euAl_WTbw-BDww=.trap.gz (15 of 282)
+[2025-04-10 13:44:40] Importing __init___13.py.aHma4GYg-a-dGcp28kUmJzonNPY=.trap.gz (16 of 282)
+[2025-04-10 13:44:40] Importing __init___14.py.Kcqhkn6SJcFt0FTljSctPwzcMoU=.trap.gz (17 of 282)
+[2025-04-10 13:44:40] Importing __init___16.py.llQWKCTtwIO-O5TqrdvkZjYEdUs=.trap.gz (18 of 282)
+[2025-04-10 13:44:40] Importing __init___17.py.ir8Kus5_CGmFLCHDjnzsqPvYsoQ=.trap.gz (19 of 282)
+[2025-04-10 13:44:40] Importing __init___18.py.8omRLjWS6eknU0gZk3dLJc7zsxo=.trap.gz (20 of 282)
+[2025-04-10 13:44:40] Importing __init___2.py.WYqBuUSKG3xfX6TzYO0ql7_Lbbc=.trap.gz (21 of 282)
+[2025-04-10 13:44:40] Importing __init___20.py._qGHTdqiYh-IcUZjqgZMZxsMHEk=.trap.gz (22 of 282)
+[2025-04-10 13:44:40] Importing __init___21.py.5bjoNOAHtnhbsiNQbVNhDfGS5S8=.trap.gz (23 of 282)
+[2025-04-10 13:44:40] Importing __init___22.py.fYU0cRqtGkOxep0HxTlVV80sicE=.trap.gz (24 of 282)
+[2025-04-10 13:44:40] Importing __init___23.py.jZirsoXdJ55amTFPMhKkxM4JTVs=.trap.gz (25 of 282)
+[2025-04-10 13:44:40] Importing __init___24.py.QbQgfl5-Rs2a_wHnsmZ-F0Tl41o=.trap.gz (26 of 282)
+[2025-04-10 13:44:40] Importing __init___25.py.tSAsdJyenjtLjdIVJUePKw3vx4U=.trap.gz (27 of 282)
+[2025-04-10 13:44:40] Importing __init___26.py.VyZrPwYgVsY3cxjUKu8BEUdwjMQ=.trap.gz (28 of 282)
+[2025-04-10 13:44:40] Importing __init___27.py.Ys3i93YwBnGvW_2D5uLgMLuXGao=.trap.gz (29 of 282)
+[2025-04-10 13:44:40] Importing __init___28.py.j8GFCj-2ZpdygwZuuPn3DdWczsQ=.trap.gz (30 of 282)
+[2025-04-10 13:44:40] Importing __init___29.py.jEvVNk0_g9O7GyR7-5q51rE0yiI=.trap.gz (31 of 282)
+[2025-04-10 13:44:40] Importing __init___3.py.OVf4ZDK7Pc15-5eG5VAoDIbXNXo=.trap.gz (32 of 282)
+[2025-04-10 13:44:40] Importing __init___30.py.eAiaYDynugRkFym1pHvnWlo_UmI=.trap.gz (33 of 282)
+[2025-04-10 13:44:40] Importing __init___4.py.ExZooIbBuzZxluOnOkSOXBEtSOU=.trap.gz (34 of 282)
+[2025-04-10 13:44:40] Importing __init___5.py.qMqZAGwq0lgzwADkjZ7Ie7OyYMI=.trap.gz (35 of 282)
+[2025-04-10 13:44:40] Importing __init___6.py._uwzSYbPUunGCPiKnaTEXYciEug=.trap.gz (36 of 282)
+[2025-04-10 13:44:40] Importing __init___7.py.ApJUPIHZ-ruT8ByrdsAyfnsWMic=.trap.gz (37 of 282)
+[2025-04-10 13:44:40] Importing __init___8.py.k-jIogoiVo7HrHHX2P-JJLbPU3w=.trap.gz (38 of 282)
+[2025-04-10 13:44:40] Importing __init___9.py.4vU8WO0oImy-Z6yRvqO6d2ehu2Q=.trap.gz (39 of 282)
+[2025-04-10 13:44:40] Importing account_9.py.pOhJGzliaeplM2ng4nSuQ_9bHM8=.trap.gz (40 of 282)
+[2025-04-10 13:44:40] Importing account_settings_7.py.SgrWN7j6oyaopk4r_RDrR-m6LHU=.trap.gz (41 of 282)
+[2025-04-10 13:44:40] Importing analysis_27.py.kvecPGh1PMWPH-i8sMRydj3hRtk=.trap.gz (42 of 282)
+[2025-04-10 13:44:40] Importing analyzer_14.py.wi5P5fYV3wKN9eLNvafJbWBkBEQ=.trap.gz (43 of 282)
+[2025-04-10 13:44:40] Importing auth_1.py.xuL72OEAzZgZxtfJclqfLNfHQZQ=.trap.gz (44 of 282)
+[2025-04-10 13:44:40] Importing auth_12.py.Qmb3szhIUem0Nv25NbzRI_HzH7E=.trap.gz (45 of 282)
+[2025-04-10 13:44:40] Importing auth_27.py.dUt6teKr31VE36Y26aIrnjs_wdc=.trap.gz (46 of 282)
+[2025-04-10 13:44:40] Importing auth_29.py.aYFaKOh0EVgWidT8y5cmNibFLa0=.trap.gz (47 of 282)
+[2025-04-10 13:44:40] Importing auth_30.py.WJdxe0focTm7qXw2eLQJ88gLyfU=.trap.gz (48 of 282)
+[2025-04-10 13:44:40] Importing auth_7.py.DURnKxSfwFufI00nMHUm84_Z5rM=.trap.gz (49 of 282)
+[2025-04-10 13:44:40] Importing auth_9.py.FS41k3YsLD_vtzBrdFaxC4RLkBY=.trap.gz (50 of 282)
+[2025-04-10 13:44:40] Importing base_22.py.Wo4Ic2rK8qjOapPRh1_oz414CV4=.trap.gz (51 of 282)
+[2025-04-10 13:44:40] Importing basic_usage_16.py.dzEwi9-yAJooEgCAsXe0mVPcVcE=.trap.gz (52 of 282)
+[2025-04-10 13:44:40] Importing blog_1.py.knnkWfN49fwP2pLJyShM1qE7G40=.trap.gz (53 of 282)
+[2025-04-10 13:44:40] Importing client_27.py.v2wfrAzvxvJ9Ec55rOkGx5YSoO0=.trap.gz (54 of 282)
+[2025-04-10 13:44:40] Importing comment_1.py.wL_WA7QDQDISnexb9Sm80s5f1PA=.trap.gz (55 of 282)
+[2025-04-10 13:44:40] Importing comment_form_1.py.MpGN787qyw7XjJe55TSjsKh6jtk=.trap.gz (56 of 282)
+[2025-04-10 13:44:40] Importing comments_1.py.5gxm9guiXARzygLufuoRS0g-ZZ0=.trap.gz (57 of 282)
+[2025-04-10 13:44:40] Importing config_1.py.TOcLd4i73qxbopCIQDufXr0eup0=.trap.gz (58 of 282)
+[2025-04-10 13:44:40] Importing config_10.py.COESHP-USv_fEp3tMpq-8_BwNKM=.trap.gz (59 of 282)
+[2025-04-10 13:44:40] Importing config_11.py.dOZkxbioWT9AhlKTRJCcXkM3wfY=.trap.gz (60 of 282)
+[2025-04-10 13:44:40] Importing config_12.py.wAnPHm0GJaj7IZ9ncYFyWmTBMvk=.trap.gz (61 of 282)
+[2025-04-10 13:44:40] Importing config_13.py.5l8XEFAsmHnRaL_XB4kVouZjzgs=.trap.gz (62 of 282)
+[2025-04-10 13:44:40] Importing config_14.py.rRZ6YVq7F_IKyozWuuxxpeY6zOQ=.trap.gz (63 of 282)
+[2025-04-10 13:44:40] Importing config_18.py.eUkBl028xFNkFCjSG2Ba99eHgt4=.trap.gz (64 of 282)
+[2025-04-10 13:44:40] Importing config_2.py.gSCRiC7HfPpg1Cqs7T0CrIn9gmQ=.trap.gz (65 of 282)
+[2025-04-10 13:44:40] Importing config_26.py.G1gHYJdHrpVUJk7HL8bu8HXzxQY=.trap.gz (66 of 282)
+[2025-04-10 13:44:40] Importing config_27.py.FL6v0XqToZB2FhLstmr_1arqklY=.trap.gz (67 of 282)
+[2025-04-10 13:44:40] Importing config_3.py.MFSfvfeS2teJSrB1_D7OcgWL_OQ=.trap.gz (68 of 282)
+[2025-04-10 13:44:40] Importing config_4.py.MTL3WSdrjKqqDL5wul2Y4TWxxi0=.trap.gz (69 of 282)
+[2025-04-10 13:44:40] Importing config_5.py.GdCS3kseORXrOQ-QTV-rieGSVL4=.trap.gz (70 of 282)
+[2025-04-10 13:44:40] Importing config_6.py.6IZNqEKg3SbMZj9Jv16NCLgu4wk=.trap.gz (71 of 282)
+[2025-04-10 13:44:40] Importing config_7.py.2mi-eOtYdutN2yZngcdgIbmnpeI=.trap.gz (72 of 282)
+[2025-04-10 13:44:40] Importing config_8.py.V10r0sO4GoK-qXBMrSob3QaqVIk=.trap.gz (73 of 282)
+[2025-04-10 13:44:40] Importing config_9.py.1hKYe4PpGnosns2mr4wUaVrEBDg=.trap.gz (74 of 282)
+[2025-04-10 13:44:40] Importing config_manager_22.py.1_PRptFYqzAm2y55ZD47e_TpJOc=.trap.gz (75 of 282)
+[2025-04-10 13:44:40] Importing conftest_28.py.Mdkl4V9ajrFOeiPLJ9V4pt_-NNs=.trap.gz (76 of 282)
+[2025-04-10 13:44:40] Importing connection_4.py.ZWt7MqTJHAnExPpptVKk4X6sSnc=.trap.gz (77 of 282)
+[2025-04-10 13:44:40] Importing credentials_30.py.nuOoah6MXJ5QrUvJb7tbIDyfI9o=.trap.gz (78 of 282)
+[2025-04-10 13:44:40] Importing dashboard_7.py.zOOPsHLgymaGV5vs_p7SEUftoZM=.trap.gz (79 of 282)
+[2025-04-10 13:44:40] Importing data_models_24.py.uGMezcoToY_T-CuImf8vVX7_EFg=.trap.gz (80 of 282)
+[2025-04-10 13:44:40] Importing database_28.py.rh52qzaUGEwjQYwwx3yAv5pmNHQ=.trap.gz (81 of 282)
+[2025-04-10 13:44:40] Importing database_3.py._FoUcSPDaOCn3rlkW683bjF18UE=.trap.gz (82 of 282)
+[2025-04-10 13:44:40] Importing db_5.py.n_vYbok_6wunRlZT0MGuHBfYQYs=.trap.gz (83 of 282)
+[2025-04-10 13:44:40] Importing db_connector_6.py.1rvbLJB49TEvbIA4qoAPLTOvlC0=.trap.gz (84 of 282)
+[2025-04-10 13:44:40] Importing dependencies_28.py.T4W0qanXE8jBER2RnhAoK6WFft4=.trap.gz (85 of 282)
+[2025-04-10 13:44:40] Importing division_21.py.9QZ_WJG7fcegkcNCA0qKLfBubKI=.trap.gz (86 of 282)
+[2025-04-10 13:44:40] Importing download_routes_11.py.xOJXdQtUdhm4SwzjdHgOKWyXGx0=.trap.gz (87 of 282)
+[2025-04-10 13:44:40] Importing ec2_30.py.arS3L8duh2cdnONkgNEn1Yfp4sM=.trap.gz (88 of 282)
+[2025-04-10 13:44:40] Importing email_verifier_6.py.bfofpUrhfNm0KeKph3uY1-okGB8=.trap.gz (89 of 282)
+[2025-04-10 13:44:40] Importing endpoints_27.py.lusyYxyfOCkwi3pc_Sfsn6vmgEA=.trap.gz (90 of 282)
+[2025-04-10 13:44:40] Importing evaluator_16.py.78NOQ2ihz5ulbuhV09vKHOPdetI=.trap.gz (91 of 282)
+[2025-04-10 13:44:40] Importing executor_13.py.PUy-whogejJeN1RSVKb15UlGy6I=.trap.gz (92 of 282)
+[2025-04-10 13:44:40] Importing file_loader_22.py.eHOALcM4n5MW3xXRDDEa23iGoQc=.trap.gz (93 of 282)
+[2025-04-10 13:44:40] Importing file_manager_25.py.8A6PexNhZiNouqxhMRRcXShPEsE=.trap.gz (94 of 282)
+[2025-04-10 13:44:40] Importing file_operations_17.py.ZCET6JU5irz4Z1ea8wj3-eVS_Hk=.trap.gz (95 of 282)
+[2025-04-10 13:44:40] Importing file_service_11.py.bUzQwiQi4kq_55qB8y5WJZ0erfg=.trap.gz (96 of 282)
+[2025-04-10 13:44:40] Importing file_service_12.py.IdHj_csPyH_sdis8kPdB-OcOkDw=.trap.gz (97 of 282)
+[2025-04-10 13:44:40] Importing file_utils_10.py.P4uNe-OPQYsKGBiAFaFNqmgGrNI=.trap.gz (98 of 282)
+[2025-04-10 13:44:40] Importing filters_4.py.m8qLsT66PHxtOeO4cfF3L-oAxh0=.trap.gz (99 of 282)
+[2025-04-10 13:44:40] Importing forms_2.py.g0R_fN-fqBMSippo3kmuTlkdHng=.trap.gz (100 of 282)
+[2025-04-10 13:44:40] Importing forms_8.py.X7ka8vVxbrcTPC7-sTcVQkirq0I=.trap.gz (101 of 282)
+[2025-04-10 13:44:40] Importing github_client_29.py.-If8NZsZ47ZP7HxHw5uIUuN0bMM=.trap.gz (102 of 282)
+[2025-04-10 13:44:40] Importing helpers_16.py.KSCTpZRixIY5OnA0CznSUwTTyMc=.trap.gz (103 of 282)
+[2025-04-10 13:44:40] Importing helpers_18.py.qbXiOjOluj_w4wfifV4A6mZvjho=.trap.gz (104 of 282)
+[2025-04-10 13:44:40] Importing helpers_24.py.hpRPfNfdGdgdX_ms2Eey_XaAgAw=.trap.gz (105 of 282)
+[2025-04-10 13:44:40] Importing codeql-database.yml.trap.gz (106 of 282)
+[2025-04-10 13:44:40] Importing http_client_26.py.B-p4PMaC-iI_GvIYTsmWTRg-nU8=.trap.gz (107 of 282)
+[2025-04-10 13:44:40] Importing importlib.dhd-aACEdhCLere2qZl8eC3DKB0=.trap.gz (108 of 282)
+[2025-04-10 13:44:40] Importing json._eyrnD0F41RSKn4udjv-sH5gSNE=.trap.gz (109 of 282)
+[2025-04-10 13:44:40] Importing json_importer_24.py.y8nZTNRYgSCLvaSpu-6J8JHHIxs=.trap.gz (110 of 282)
+[2025-04-10 13:44:40] Importing json_serializer_22.py.2z0CwppdRCXe46rk0oyGYGb_5o0=.trap.gz (111 of 282)
+[2025-04-10 13:44:40] Importing jwt_28.py.P81EDU9Npxcks0qBNqDjs0Rpv5k=.trap.gz (112 of 282)
+[2025-04-10 13:44:40] Importing lexer_16.py.yg6UfwqlxoiNiQT12yuV0pH_Jq4=.trap.gz (113 of 282)
+[2025-04-10 13:44:40] Importing loader_18.py.0f9L9VQZyDR6xDgezGvMgBeFEhA=.trap.gz (114 of 282)
+[2025-04-10 13:44:40] Importing log_entry_14.py.flSp_yz_WW2gBaN_jMa8R8827rU=.trap.gz (115 of 282)
+[2025-04-10 13:44:40] Importing logger_17.py.v4S_aSZPcJJS5mLdJELfXPmHYiU=.trap.gz (116 of 282)
+[2025-04-10 13:44:40] Importing logger_30.py.HJ2SXrADLnndR7U0VSPL4AcC0Z0=.trap.gz (117 of 282)
+[2025-04-10 13:44:40] Importing logging.Cf4IHCKDRwIvwUPbS25NxUw7o68=.trap.gz (118 of 282)
+[2025-04-10 13:44:40] Importing logging_26.py.0xKoDrGys9x5pLU4TWbYydnkTLw=.trap.gz (119 of 282)
+[2025-04-10 13:44:40] Importing main_11.py.77_PpFAqyBelkGObwJsPAmNJe4k=.trap.gz (120 of 282)
+[2025-04-10 13:44:40] Importing main_13.py.GmmB92ox4Kx__pIgDbUGKdB2C6U=.trap.gz (121 of 282)
+[2025-04-10 13:44:40] Importing main_14.py.IS7Xpr9xVVvxca4puX9soT1Ceug=.trap.gz (122 of 282)
+[2025-04-10 13:44:40] Importing main_15.py.UTSslj-cYqlhhzQkzz_LcUtmJ4A=.trap.gz (123 of 282)
+[2025-04-10 13:44:40] Importing main_16.py.cFwUdr8q8Gt8w9QpzkG4cWtLOqU=.trap.gz (124 of 282)
+[2025-04-10 13:44:40] Importing main_17.py.gN0CLWDBX4UNM8Uup7SzlBm0ql0=.trap.gz (125 of 282)
+[2025-04-10 13:44:40] Importing main_18.py.fSkAlY-NU6RaSY2hiHwVeDl1F2Y=.trap.gz (126 of 282)
+[2025-04-10 13:44:40] Importing main_19.py.UHDLQ4BKl-UO7ykYT45-8SXqjrA=.trap.gz (127 of 282)
+[2025-04-10 13:44:40] Importing main_21.py.kp4rQ6dAsz7Y_e9fzlZgIpfCwio=.trap.gz (128 of 282)
+[2025-04-10 13:44:40] Importing main_23.py.GE21Ate5KySy5hvSejawSC7HU5Y=.trap.gz (129 of 282)
+[2025-04-10 13:44:40] Importing main_24.py.GcQkeNR1sH7QohhTqeRV9RYTrkQ=.trap.gz (130 of 282)
+[2025-04-10 13:44:40] Importing main_25.py.t5qpLxsgp4a0IjwSz87YRKabq0M=.trap.gz (131 of 282)
+[2025-04-10 13:44:40] Importing main_26.py.DQmoASBp4dfxjqi6_yBO08rl-mI=.trap.gz (132 of 282)
+[2025-04-10 13:44:40] Importing main_27.py.eHR9Nj1TuFetqLzOkrCYFKqko9I=.trap.gz (133 of 282)
+[2025-04-10 13:44:40] Importing main_28.py.wzonBeX6CYpNBDnpaOf4NCRmE0I=.trap.gz (134 of 282)
+[2025-04-10 13:44:40] Importing main_29.py.ULTh8Pptcky67NIcT87XC6z3G1o=.trap.gz (135 of 282)
+[2025-04-10 13:44:40] Importing main_3.py.Fwp0BrK4ohCfiB3WVPY4TvDgd-s=.trap.gz (136 of 282)
+[2025-04-10 13:44:40] Importing main_30.py.J-uZfpFnZe_D3qPcFHndbcKLfnU=.trap.gz (137 of 282)
+[2025-04-10 13:44:40] Importing main_4.py.TS8SIenb2Fj5FJuNLaOS2LbYaxs=.trap.gz (138 of 282)
+[2025-04-10 13:44:40] Importing main_5.py.TcJrCp2u8TBCqkyFHAt141pD7cs=.trap.gz (139 of 282)
+[2025-04-10 13:44:40] Importing main_6.py.yEDIkfUU0nDFZw_Hdsh27vno208=.trap.gz (140 of 282)
+[2025-04-10 13:44:40] Importing metadata.trap.gz (141 of 282)
+[2025-04-10 13:44:40] Importing models_2.py.URYT2TnosvP1UAVtp7dWdqF3r4g=.trap.gz (142 of 282)
+[2025-04-10 13:44:40] Importing models_25.py.sXFRv06wblHvhuwoAA-FPpNtKUE=.trap.gz (143 of 282)
+[2025-04-10 13:44:40] Importing models_26.py.ZwU4QzlU-rfuRxM0ZvL8pjPOBfQ=.trap.gz (144 of 282)
+[2025-04-10 13:44:40] Importing models_28.py.YcDNLXziNozShuqosScGaASngdE=.trap.gz (145 of 282)
+[2025-04-10 13:44:40] Importing models_29.py.H3sPvUM2i-IP4toUfgD5UxGxbjQ=.trap.gz (146 of 282)
+[2025-04-10 13:44:40] Importing models_4.py._o6C3uF3pNVqyFHMFnchozmDpRk=.trap.gz (147 of 282)
+[2025-04-10 13:44:40] Importing models_5.py.PopxYvnwvo5w0-YM-0R7WpyewPI=.trap.gz (148 of 282)
+[2025-04-10 13:44:40] Importing models_6.py.YFNdiAUxS-rFkNlNAAgUlJeYII8=.trap.gz (149 of 282)
+[2025-04-10 13:44:40] Importing models_8.py.P9gLpxuKR6vnQQSgOzCPIldY3Bc=.trap.gz (150 of 282)
+[2025-04-10 13:44:40] Importing object_mapper_24.py.dd35auiDIBQH-xlKpQcXQ4fs4vM=.trap.gz (151 of 282)
+[2025-04-10 13:44:40] Importing parameter_handler_2.py.f-bgaS_B-xLIXs2ViCNZHWvAg04=.trap.gz (152 of 282)
+[2025-04-10 13:44:40] Importing parser_14.py.a5aOXWmfxcqHcOt3GIv-G8bRmEU=.trap.gz (153 of 282)
+[2025-04-10 13:44:40] Importing parser_16.py.gqSxrCdgLDB9NR64VBpBjqZZntw=.trap.gz (154 of 282)
+[2025-04-10 13:44:40] Importing password_28.py.wF0azi7LvO6LUFrRwAlxVGaBqrs=.trap.gz (155 of 282)
+[2025-04-10 13:44:40] Importing password_handler_6.py.972cI3srMQkH7DwzgpGQdU0esIY=.trap.gz (156 of 282)
+[2025-04-10 13:44:40] Importing ping_utils_15.py.0DglcEYJOf27r5SBGIOtdpHTvaQ=.trap.gz (157 of 282)
+[2025-04-10 13:44:40] Importing plugin_18.py.rmIR_fkIB684-MYyOy9skZ5RieA=.trap.gz (158 of 282)
+[2025-04-10 13:44:40] Importing plugin_interface_18.py.vHu85Xsd2UMxMzClAjL7tSAIt2Y=.trap.gz (159 of 282)
+[2025-04-10 13:44:40] Importing post_1.py.UNZoWm1lsgUOGraQ7zfwOWdRRDE=.trap.gz (160 of 282)
+[2025-04-10 13:44:40] Importing profile_3.py.LNMRR3oaZPG_1dmxzaGtdntzu7U=.trap.gz (161 of 282)
+[2025-04-10 13:44:40] Importing query_4.py.1Z7ZIKWUXvtRGrRAHQS_sKppC-0=.trap.gz (162 of 282)
+[2025-04-10 13:44:40] Importing rds_30.py.IXQWkgBaS89Cxq1SkeX4dYCHwEg=.trap.gz (163 of 282)
+[2025-04-10 13:44:40] Importing re.qkoimtbTAqzKb70pn8P4VYGd1WI=.trap.gz (164 of 282)
+[2025-04-10 13:44:40] Importing registry_18.py.qUFA8-RM0NUrQSl5t9tH1ZbHLCg=.trap.gz (165 of 282)
+[2025-04-10 13:44:40] Importing remote_loader_22.py.ULXaZjeMZdMPXTgZHSDsK5twUWc=.trap.gz (166 of 282)
+[2025-04-10 13:44:40] Importing report_11.py.KKIgeADNWkMSH2OO-ih9DCk9A50=.trap.gz (167 of 282)
+[2025-04-10 13:44:40] Importing restore_23.py.p48Nd38DUGeSYqc_D4_3pICPSR0=.trap.gz (168 of 282)
+[2025-04-10 13:44:40] Importing routes_10.py.NgEwFwJphM2EOBOq85FDj50Mt4U=.trap.gz (169 of 282)
+[2025-04-10 13:44:40] Importing routes_13.py.D7vYG3HXl3u-COLDeWtWguqeXao=.trap.gz (170 of 282)
+[2025-04-10 13:44:40] Importing routes_2.py.-kK7Xe11rmWyXEp61D-j8GD9lH4=.trap.gz (171 of 282)
+[2025-04-10 13:44:40] Importing routes_25.py.Dlh9w-_g0R7ZA0sHJHgfQQ83iWQ=.trap.gz (172 of 282)
+[2025-04-10 13:44:40] Importing routes_26.py.FctMAiXaRFw6_qPi-2dVU7J90dw=.trap.gz (173 of 282)
+[2025-04-10 13:44:41] Importing routes_28.py.nPwVt_EuwvtzqBk3MuIpZHDo4lA=.trap.gz (174 of 282)
+[2025-04-10 13:44:41] Importing routes_6.py.lYCTlcM5VZ8ZZGgb2YL84ABnlAI=.trap.gz (175 of 282)
+[2025-04-10 13:44:41] Importing routes_8.py.MTQnymKE7VushrkNj-U9XmxmPD4=.trap.gz (176 of 282)
+[2025-04-10 13:44:41] Importing run_1.py.bWKnwVUQtch6SsFyiv8FO3fFuh4=.trap.gz (177 of 282)
+[2025-04-10 13:44:41] Importing run_10.py.AT4Knp1TfsLKXusS09HN6xxTvOo=.trap.gz (178 of 282)
+[2025-04-10 13:44:41] Importing run_12.py.TS2csqs3CwJev145Biqp0gkTDpw=.trap.gz (179 of 282)
+[2025-04-10 13:44:41] Importing run_2.py.rZgWoPRjvLAx30HZZ7hs8Fj-QJY=.trap.gz (180 of 282)
+[2025-04-10 13:44:41] Importing run_7.py.rXnCwpIA_PRCnRuWsdPab_zOZ1o=.trap.gz (181 of 282)
+[2025-04-10 13:44:41] Importing run_8.py.J1yOVuWwHSizkXY3bGUanKtWhJE=.trap.gz (182 of 282)
+[2025-04-10 13:44:41] Importing run_9.py.FJbDQeuXQNrA184kIoi-CgQY5LM=.trap.gz (183 of 282)
+[2025-04-10 13:44:41] Importing s3_30.py.SgK-sEYscLrA3fNB4qX_6AlVKUg=.trap.gz (184 of 282)
+[2025-04-10 13:44:41] Importing sandbox_17.py.87yFoPNg9jHzOMqMw-GYqHp4klA=.trap.gz (185 of 282)
+[2025-04-10 13:44:41] Importing save_23.py.iyMHDl-jKh8Xpf_pHirljUlEEHk=.trap.gz (186 of 282)
+[2025-04-10 13:44:41] Importing schemas_28.py.hejDGYId48E9fGzYqcj0rOcIeZw=.trap.gz (187 of 282)
+[2025-04-10 13:44:41] Importing script_executor_17.py.IzWRXi7Fej1z4dJ4GF87WgBnSMM=.trap.gz (188 of 282)
+[2025-04-10 13:44:41] Importing search_14.py.5bi6MyU20qx0Q-LyYAx2dyQlaNc=.trap.gz (189 of 282)
+[2025-04-10 13:44:41] Importing security_13.py.RAt2ECLDXkLeYTwpKunnkM56TGc=.trap.gz (190 of 282)
+[2025-04-10 13:44:41] Importing security_28.py.C_2mUMceIk-PM6_rYV4nZopo2qU=.trap.gz (191 of 282)
+[2025-04-10 13:44:41] Importing serializer_23.py.vLdeF9Rzr0FWLJ0IV-WjYAzPaC8=.trap.gz (192 of 282)
+[2025-04-10 13:44:41] Importing settings_17.py.xFUG_gI7v6SHaECijCP1f1h9m7c=.trap.gz (193 of 282)
+[2025-04-10 13:44:41] Importing settings_25.py.8qnwNOVRm_RrdLcAz_wRTKhG4i8=.trap.gz (194 of 282)
+[2025-04-10 13:44:41] Importing settings_28.py.QADMjZKlw4VMr-DAe5NlKaOy1u8=.trap.gz (195 of 282)
+[2025-04-10 13:44:41] Importing settings_29.py.m-8Gq1sr-vDZvtXHRUSWyq0FHdM=.trap.gz (196 of 282)
+[2025-04-10 13:44:41] Importing settings_7.py.v8__mzzL39r12q3U6XqtroDcCrQ=.trap.gz (197 of 282)
+[2025-04-10 13:44:41] Importing setup_16.py.8inx3bXmgtDrxRhPYB8GUIFLPPU=.trap.gz (198 of 282)
+[2025-04-10 13:44:41] Importing setup_17.py.L0325BXByDc8PP6BFc5k9-n7YFc=.trap.gz (199 of 282)
+[2025-04-10 13:44:41] Importing setup_18.py.hE36Rk3uaq1l204ECn16g6q9Ehc=.trap.gz (200 of 282)
+[2025-04-10 13:44:41] Importing setup_22.py.sGCGcr7KM9c7PakWCkj0nguf7wQ=.trap.gz (201 of 282)
+[2025-04-10 13:44:41] Importing setup_23.py.7SJovO1mh9GnmdjXxkHukOAseYw=.trap.gz (202 of 282)
+[2025-04-10 13:44:41] Importing setup_24.py.ZhX_HkIVv0HbqBBUTY0g8G1nTqw=.trap.gz (203 of 282)
+[2025-04-10 13:44:41] Importing setup_27.py.zXTmeWIqtMe_Xuv626azwc2amKI=.trap.gz (204 of 282)
+[2025-04-10 13:44:41] Importing setup_30.py.U6JNCH7RYZADuT3r_Wlk8bR3nTQ=.trap.gz (205 of 282)
+[2025-04-10 13:44:41] Importing sqlite3.as3xtLp4oFARZ5g5vltOc0gdUaE=.trap.gz (206 of 282)
+[2025-04-10 13:44:41] Importing sys.Yw1yPFTvrDGbty5p_j6rBnIzK5U=.trap.gz (207 of 282)
+[2025-04-10 13:44:41] Importing system_info_17.py.nDgNV72Orov_vDiK6YVQjdJs_Zg=.trap.gz (208 of 282)
+[2025-04-10 13:44:41] Importing test_admin_2.py.R9fd1qlfxL_Q_1NKG9veph-QK7Q=.trap.gz (209 of 282)
+[2025-04-10 13:44:41] Importing test_analysis_27.py.j1g7DQzyPIYcHzZqQeymjRfj9a0=.trap.gz (210 of 282)
+[2025-04-10 13:44:41] Importing test_analyzer_14.py.ets6xcFX0GtpZv47RST6MMrdfa0=.trap.gz (211 of 282)
+[2025-04-10 13:44:41] Importing test_api_13.py.vNrz6YgHEXkF9xI-tTsL_QaFvKM=.trap.gz (212 of 282)
+[2025-04-10 13:44:41] Importing test_api_25.py.QwZMIzGgriLzqpDxuIZ9cME6vZg=.trap.gz (213 of 282)
+[2025-04-10 13:44:41] Importing test_api_26.py.r_4JDcn17K48DHG5hEYWuMeElhQ=.trap.gz (214 of 282)
+[2025-04-10 13:44:41] Importing test_api_6.py.z-4JDJU8g_hxQH-l5CppNDbOFSs=.trap.gz (215 of 282)
+[2025-04-10 13:44:41] Importing test_app_18.py.zUIaNG11eMkPYXi2QQshc-ceFkI=.trap.gz (216 of 282)
+[2025-04-10 13:44:41] Importing test_auth_20.py.1ibX3kg3JM7QB8D0-VqEW-mc7_E=.trap.gz (217 of 282)
+[2025-04-10 13:44:41] Importing test_auth_27.py.SnjkfvSubkh2bfCfnS8w9AotfA4=.trap.gz (218 of 282)
+[2025-04-10 13:44:41] Importing test_auth_28.py.qvjPg02O1CkAiC65qWe8AWtoV6Q=.trap.gz (219 of 282)
+[2025-04-10 13:44:41] Importing test_auth_29.py.Ks77VQ99mViY-hWpxCOFxUxkIxs=.trap.gz (220 of 282)
+[2025-04-10 13:44:41] Importing test_auth_30.py.77O1d8gcIO2G5GXvFOg838vTPbE=.trap.gz (221 of 282)
+[2025-04-10 13:44:41] Importing test_auth_5.py.34FhmrCAcxZzxH5UpkQZszO4z04=.trap.gz (222 of 282)
+[2025-04-10 13:44:41] Importing test_auth_6.py.Xj2084EZk0UGhKSaGp38LEZv-Gw=.trap.gz (223 of 282)
+[2025-04-10 13:44:41] Importing test_client_27.py.nrvidFeKVo07RYUBSSB8e8SJZY4=.trap.gz (224 of 282)
+[2025-04-10 13:44:41] Importing test_commands_13.py.bJT4UawQT0cWqJY0_rBG2Hc0GbI=.trap.gz (225 of 282)
+[2025-04-10 13:44:41] Importing test_config_manager_22.py.tNL0uWVjt_Jbq7ts6_2OfgzRPig=.trap.gz (226 of 282)
+[2025-04-10 13:44:41] Importing test_database_4.py.9LkUtlf2eS_736tN-xbX1WWVINo=.trap.gz (227 of 282)
+[2025-04-10 13:44:41] Importing test_db_5.py.rsgK2RrBLhpdubcuI-8_p3iaaQk=.trap.gz (228 of 282)
+[2025-04-10 13:44:41] Importing test_division_21.py.hJBbIymxuwyiOG9UdbtGq5zlxVI=.trap.gz (229 of 282)
+[2025-04-10 13:44:41] Importing test_download_11.py.brxwIsNnCa4yFBiBTgAym9GNILw=.trap.gz (230 of 282)
+[2025-04-10 13:44:41] Importing test_downloaders_25.py.C1lm6m9ppXCJm7cjuJVDVyZE2Lo=.trap.gz (231 of 282)
+[2025-04-10 13:44:41] Importing test_ec2_30.py.oPBLbmAfODzgKQTwxmizJvwkGTE=.trap.gz (232 of 282)
+[2025-04-10 13:44:41] Importing test_evaluator_16.py.ecu8BHoKE0iqhlI_8662I0v0wh4=.trap.gz (233 of 282)
+[2025-04-10 13:44:41] Importing test_executor_17.py.X6rNrFnyMpgPU4OopUmvGKUlfK8=.trap.gz (234 of 282)
+[2025-04-10 13:44:41] Importing test_file_service_12.py.F7KlN0jSVOeHR6rs8rtlMO3UILI=.trap.gz (235 of 282)
+[2025-04-10 13:44:41] Importing test_github_client_29.py.U9vauFA25j_kmVDAY3bgEeRIPxM=.trap.gz (236 of 282)
+[2025-04-10 13:44:41] Importing test_http_client_26.py.wqypDeoqtOWXev15eVhspHkSxYc=.trap.gz (237 of 282)
+[2025-04-10 13:44:41] Importing test_importer_24.py.fP9kCHyfNHasi5c0SI-ZbTTtG1o=.trap.gz (238 of 282)
+[2025-04-10 13:44:41] Importing test_lexer_16.py.bEBeh1GtbJKNTpN5IPwL20TNDiw=.trap.gz (239 of 282)
+[2025-04-10 13:44:41] Importing test_loaders_22.py.wko2Jv43CFfGcgrCZx4CTlB3tqI=.trap.gz (240 of 282)
+[2025-04-10 13:44:41] Importing test_main_15.py.Y2AIgo8y_4-4h01kCnAmdKvjRso=.trap.gz (241 of 282)
+[2025-04-10 13:44:41] Importing test_main_19.py._r_2NCDBx3KF8uB166KAZR-6--Q=.trap.gz (242 of 282)
+[2025-04-10 13:44:41] Importing test_mapper_24.py.PJrQe5xBNLO0_Ns_zS0pkZqr7Sc=.trap.gz (243 of 282)
+[2025-04-10 13:44:41] Importing test_models_9.py.bfXb97M6wI0FV5tktu5dD0x6F0o=.trap.gz (244 of 282)
+[2025-04-10 13:44:41] Importing test_parameter_handling_2.py.PKDflWwa9nKNFxDQ5jXDLeIoIg8=.trap.gz (245 of 282)
+[2025-04-10 13:44:41] Importing test_parser_16.py.FYi2Vz07G0MxjOplu5hBYj9Ad-I=.trap.gz (246 of 282)
+[2025-04-10 13:44:41] Importing test_plugin_system_18.py.S_ZmJQGn-GuEQDOyimSGM8ZZw5U=.trap.gz (247 of 282)
+[2025-04-10 13:44:41] Importing test_restore_23.py.sbsXLMBnl9cBzloH7l6Mc1lbfhk=.trap.gz (248 of 282)
+[2025-04-10 13:44:41] Importing test_routes_12.py.NKL2XIbemexpbgKlxAQT3HnFrKM=.trap.gz (249 of 282)
+[2025-04-10 13:44:41] Importing test_sandbox_17.py.uWyrKd34x8nsiVVxjFBy4oPrey0=.trap.gz (250 of 282)
+[2025-04-10 13:44:41] Importing test_save_23.py.k-vQRPwr_UdIo_nYjpbw9lzMgiM=.trap.gz (251 of 282)
+[2025-04-10 13:44:41] Importing test_search_14.py.Jq3elAS-UAKXufHxtYGyK6aLVN4=.trap.gz (252 of 282)
+[2025-04-10 13:44:41] Importing test_search_4.py.9ToyS58SFJYn6lomNWjs21sKwfw=.trap.gz (253 of 282)
+[2025-04-10 13:44:41] Importing test_serializers_22.py.pb0cuJmLh7oBFgwFVoEU-jkv0EA=.trap.gz (254 of 282)
+[2025-04-10 13:44:41] Importing test_transfers_9.py.QhrDjdgSio8LjJu3stfidUgK6ko=.trap.gz (255 of 282)
+[2025-04-10 13:44:41] Importing test_users_28.py.yfs0O0yYrFPrpm3GhQq9an6Fm6s=.trap.gz (256 of 282)
+[2025-04-10 13:44:41] Importing test_utils_19.py.rMuqWbjBrSj-l1pAd4uC_g6rTMA=.trap.gz (257 of 282)
+[2025-04-10 13:44:41] Importing test_validators_15.py.98a6jOh3Zz0nGH9w0TPNTE4bIO4=.trap.gz (258 of 282)
+[2025-04-10 13:44:41] Importing transfer_service_9.py.wQ979C6T_KTx9EMOYynhFqbmiiU=.trap.gz (259 of 282)
+[2025-04-10 13:44:41] Importing transfers_9.py.6uXIVDDkakJJ3BUtnjJE5KYtsi4=.trap.gz (260 of 282)
+[2025-04-10 13:44:41] Importing unittest.YXZCFN-KUYREkcG5g7GeaJRHU-c=.trap.gz (261 of 282)
+[2025-04-10 13:44:41] Importing upload_12.py.Lap6doqr9atPhVblCYheHKyySyA=.trap.gz (262 of 282)
+[2025-04-10 13:44:41] Importing url_downloader_25.py.mu4xypNr273lAC17OIBES97PHmM=.trap.gz (263 of 282)
+[2025-04-10 13:44:41] Importing urllib.Qx30OrAjj4XbNHtAL0IeW1HhuSc=.trap.gz (264 of 282)
+[2025-04-10 13:44:41] Importing usage_example_22.py.1ZAyn8ttuQNYBudwGpBxdZfnI0A=.trap.gz (265 of 282)
+[2025-04-10 13:44:41] Importing user_12.py.RciRov8KZN40-OTOkqpJLYjCpkw=.trap.gz (266 of 282)
+[2025-04-10 13:44:41] Importing user_13.py.QZJCjjo9u-dcG_7RS40BwvtesDQ=.trap.gz (267 of 282)
+[2025-04-10 13:44:41] Importing user_3.py.kPoAU-kRR-1LMK_6qkFuE28_gqY=.trap.gz (268 of 282)
+[2025-04-10 13:44:41] Importing user_7.py.7JGU6JxaTJcCaiPs0_qvftwq_0w=.trap.gz (269 of 282)
+[2025-04-10 13:44:41] Importing user_9.py.Yixrkzz9nXYY_Czbh2TIPCTK4bE=.trap.gz (270 of 282)
+[2025-04-10 13:44:41] Importing utils_19.py.34qWW67r07avesqcC1bOccC4RxI=.trap.gz (271 of 282)
+[2025-04-10 13:44:41] Importing utils_2.py.-wyPpSyVaOrvIgOJTbfkrYobT9U=.trap.gz (272 of 282)
+[2025-04-10 13:44:41] Importing utils_5.py.uQF8vUi7eK5id0J1D74XEzNCxuU=.trap.gz (273 of 282)
+[2025-04-10 13:44:41] Importing utils_8.py.5KMj3YNRfxJw_ecEPJCrQr9R730=.trap.gz (274 of 282)
+[2025-04-10 13:44:41] Importing validation_22.py.twdPhHMyXdGpipIqsiGJ3BobCmg=.trap.gz (275 of 282)
+[2025-04-10 13:44:41] Importing validators_15.py.hcm9PBWEdbMKhOag4U8VjVvSgWM=.trap.gz (276 of 282)
+[2025-04-10 13:44:41] Importing validators_17.py.thE_m10JRmVuelFmACMpKe9CBM0=.trap.gz (277 of 282)
+[2025-04-10 13:44:41] Importing validators_26.py.dk4HPctBP8H1mbJkh2jMGRSJCyQ=.trap.gz (278 of 282)
+[2025-04-10 13:44:41] Importing validators_4.py.UZxH2GmpnM2Zi7ygJHB63ipfHvM=.trap.gz (279 of 282)
+[2025-04-10 13:44:41] Importing validators_6.py.g-0K9gRBTrDX0ix3z0z-7XJllUg=.trap.gz (280 of 282)
+[2025-04-10 13:44:41] Importing web_routes_14.py.SKnckO6gbR_vvjvrJNCAWFwVyr4=.trap.gz (281 of 282)
+[2025-04-10 13:44:41] Importing yaml_serializer_22.py.jTo8EfaTiF80G5vrYqSUwUw1v9M=.trap.gz (282 of 282)
+[2025-04-10 13:44:41] [PROGRESS] dataset import> Merging relations
+[2025-04-10 13:44:41] Merging 1 fragment for 'files'.
+[2025-04-10 13:44:41] Merged 552 bytes for 'files'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'folders'.
+[2025-04-10 13:44:41] Merged 68 bytes for 'folders'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'containerparent'.
+[2025-04-10 13:44:41] Merged 328 bytes for 'containerparent'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_flags_versioned'.
+[2025-04-10 13:44:41] Merged 185 bytes for 'py_flags_versioned'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_cobjects'.
+[2025-04-10 13:44:41] Merged 6109 bytes (5.97 KiB) for 'py_cobjects'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_cobjecttypes'.
+[2025-04-10 13:44:41] Merged 9228 bytes (9.01 KiB) for 'py_cobjecttypes'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_cobject_sources'.
+[2025-04-10 13:44:41] Merged 8283 bytes (8.09 KiB) for 'py_cobject_sources'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_cobjectnames'.
+[2025-04-10 13:44:41] Merged 8994 bytes (8.78 KiB) for 'py_cobjectnames'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_cmembers_versioned'.
+[2025-04-10 13:44:41] Merged 6633 bytes (6.48 KiB) for 'py_cmembers_versioned'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_special_objects'.
+[2025-04-10 13:44:41] Merged 136 bytes for 'py_special_objects'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_citems'.
+[2025-04-10 13:44:41] Merged 502 bytes for 'py_citems'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'ext_rettype'.
+[2025-04-10 13:44:41] Merged 4039 bytes (3.94 KiB) for 'ext_rettype'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'ext_argtype'.
+[2025-04-10 13:44:41] Merged 6821 bytes (6.66 KiB) for 'ext_argtype'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'ext_argreturn'.
+[2025-04-10 13:44:41] Merged 41 bytes for 'ext_argreturn'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'ext_proptype'.
+[2025-04-10 13:44:41] Merged 345 bytes for 'ext_proptype'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_Modules'.
+[2025-04-10 13:44:41] Merged 285 bytes for 'py_Modules'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_module_path'.
+[2025-04-10 13:44:41] Merged 716 bytes for 'py_module_path'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'variable'.
+[2025-04-10 13:44:41] Merged 16352 bytes (15.97 KiB) for 'variable'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_extracted_version'.
+[2025-04-10 13:44:41] Merged 291 bytes for 'py_extracted_version'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_scope_flow'.
+[2025-04-10 13:44:41] Merged 12939 bytes (12.64 KiB) for 'py_scope_flow'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_flow_bb_node'.
+[2025-04-10 13:44:41] Merged 57504 bytes (56.16 KiB) for 'py_flow_bb_node'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_successors'.
+[2025-04-10 13:44:41] Merged 32341 bytes (31.58 KiB) for 'py_successors'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_idoms'.
+[2025-04-10 13:44:41] Merged 31225 bytes (30.49 KiB) for 'py_idoms'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'locations_ast'.
+[2025-04-10 13:44:41] Merged 81000 bytes (79.10 KiB) for 'locations_ast'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_scope_location'.
+[2025-04-10 13:44:41] Merged 3408 bytes (3.33 KiB) for 'py_scope_location'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_comments'.
+[2025-04-10 13:44:41] Merged 859 bytes for 'py_comments'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_stmt_lists'.
+[2025-04-10 13:44:41] Merged 5405 bytes (5.28 KiB) for 'py_stmt_lists'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_stmts'.
+[2025-04-10 13:44:41] Merged 13138 bytes (12.83 KiB) for 'py_stmts'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_scopes'.
+[2025-04-10 13:44:41] Merged 22809 bytes (22.27 KiB) for 'py_scopes'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_alias_lists'.
+[2025-04-10 13:44:41] Merged 1206 bytes (1.18 KiB) for 'py_alias_lists'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_aliases'.
+[2025-04-10 13:44:41] Merged 1783 bytes (1.74 KiB) for 'py_aliases'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_exprs'.
+[2025-04-10 13:44:41] Merged 56934 bytes (55.60 KiB) for 'py_exprs'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_ints'.
+[2025-04-10 13:44:41] Merged 773 bytes for 'py_ints'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_strs'.
+[2025-04-10 13:44:41] Merged 18855 bytes (18.41 KiB) for 'py_strs'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_variables'.
+[2025-04-10 13:44:41] Merged 13433 bytes (13.12 KiB) for 'py_variables'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_expr_contexts'.
+[2025-04-10 13:44:41] Merged 22596 bytes (22.07 KiB) for 'py_expr_contexts'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_arguments'.
+[2025-04-10 13:44:41] Merged 1472 bytes (1.44 KiB) for 'py_arguments'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_Functions'.
+[2025-04-10 13:44:41] Merged 1494 bytes (1.46 KiB) for 'py_Functions'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_expr_lists'.
+[2025-04-10 13:44:41] Merged 13232 bytes (12.92 KiB) for 'py_expr_lists'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_exports'.
+[2025-04-10 13:44:41] Merged 959 bytes for 'py_exports'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_ssa_var'.
+[2025-04-10 13:44:41] Merged 6160 bytes (6.02 KiB) for 'py_ssa_var'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_ssa_defn'.
+[2025-04-10 13:44:41] Merged 5436 bytes (5.31 KiB) for 'py_ssa_defn'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_ssa_use'.
+[2025-04-10 13:44:41] Merged 7720 bytes (7.54 KiB) for 'py_ssa_use'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_codelines'.
+[2025-04-10 13:44:41] Merged 2043 bytes (2.00 KiB) for 'py_codelines'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_commentlines'.
+[2025-04-10 13:44:41] Merged 1569 bytes (1.53 KiB) for 'py_commentlines'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_docstringlines'.
+[2025-04-10 13:44:41] Merged 1151 bytes (1.12 KiB) for 'py_docstringlines'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_alllines'.
+[2025-04-10 13:44:41] Merged 2040 bytes (1.99 KiB) for 'py_alllines'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'numlines'.
+[2025-04-10 13:44:41] Merged 941 bytes for 'numlines'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_locations'.
+[2025-04-10 13:44:41] Merged 34302 bytes (33.50 KiB) for 'py_locations'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_Classes'.
+[2025-04-10 13:44:41] Merged 541 bytes for 'py_Classes'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_numbers'.
+[2025-04-10 13:44:41] Merged 1594 bytes (1.56 KiB) for 'py_numbers'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_parameter_lists'.
+[2025-04-10 13:44:41] Merged 1261 bytes (1.23 KiB) for 'py_parameter_lists'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_cmpop_lists'.
+[2025-04-10 13:44:41] Merged 633 bytes for 'py_cmpop_lists'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_cmpops'.
+[2025-04-10 13:44:41] Merged 787 bytes for 'py_cmpops'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_operators'.
+[2025-04-10 13:44:41] Merged 173 bytes for 'py_operators'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_true_successors'.
+[2025-04-10 13:44:41] Merged 859 bytes for 'py_true_successors'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_false_successors'.
+[2025-04-10 13:44:41] Merged 862 bytes for 'py_false_successors'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_dict_item_lists'.
+[2025-04-10 13:44:41] Merged 915 bytes for 'py_dict_item_lists'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_dict_items'.
+[2025-04-10 13:44:41] Merged 2087 bytes (2.04 KiB) for 'py_dict_items'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_boolops'.
+[2025-04-10 13:44:41] Merged 189 bytes for 'py_boolops'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_bools'.
+[2025-04-10 13:44:41] Merged 364 bytes for 'py_bools'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_unaryops'.
+[2025-04-10 13:44:41] Merged 175 bytes for 'py_unaryops'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_exception_successors'.
+[2025-04-10 13:44:41] Merged 291 bytes for 'py_exception_successors'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'yaml_scalars'.
+[2025-04-10 13:44:41] Merged 142 bytes for 'yaml_scalars'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'yaml'.
+[2025-04-10 13:44:41] Merged 502 bytes for 'yaml'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'locations_default'.
+[2025-04-10 13:44:41] Merged 466 bytes for 'locations_default'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'yaml_locations'.
+[2025-04-10 13:44:41] Merged 164 bytes for 'yaml_locations'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_ssa_phi'.
+[2025-04-10 13:44:41] Merged 117 bytes for 'py_ssa_phi'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'sourceLocationPrefix'.
+[2025-04-10 13:44:41] Merged 17 bytes for 'sourceLocationPrefix'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_StringPart_lists'.
+[2025-04-10 13:44:41] Merged 33 bytes for 'py_StringPart_lists'.
+[2025-04-10 13:44:41] Merging 1 fragment for 'py_StringParts'.
+[2025-04-10 13:44:41] Merged 57 bytes for 'py_StringParts'.
+[2025-04-10 13:44:41] Saving string and id pools to disk.
+[2025-04-10 13:44:41] Finished importing TRAP files.
+[2025-04-10 13:44:41] Read 7.81 MiB of uncompressed TRAP data.
+[2025-04-10 13:44:41] Uncompressed relation data size: 2.17 MiB
+[2025-04-10 13:44:41] Relation data size: 524.28 KiB (merge rate: 2.63 MiB/s)
+[2025-04-10 13:44:41] String pool size: 2.13 MiB
+[2025-04-10 13:44:41] ID pool size: 1.19 MiB
+[2025-04-10 13:44:41] [PROGRESS] dataset import> Finished writing database (relations: 524.28 KiB; string pool: 2.13 MiB).
+[2025-04-10 13:44:41] Pausing evaluation to close the cache at sequence stamp o+145
+[2025-04-10 13:44:41] The disk cache is freshly trimmed; leave it be.
+[2025-04-10 13:44:41] Unpausing evaluation
+[2025-04-10 13:44:41] Plumbing command codeql dataset import completed.
+[2025-04-10 13:44:41] [PROGRESS] database finalize> TRAP import complete (2.6s).
+[2025-04-10 13:44:41] Running plumbing command: codeql database cleanup -- /home/gra3ml/IC/Códigos_Claude3.7/database-claude
+[2025-04-10 13:44:42] [PROGRESS] database cleanup> Cleaning up existing TRAP files after import...
+[2025-04-10 13:44:42] [PROGRESS] database cleanup> TRAP files cleaned up (12ms).
+[2025-04-10 13:44:42] [PROGRESS] database cleanup> Cleaning up scratch directory...
+[2025-04-10 13:44:42] [PROGRESS] database cleanup> Scratch directory cleaned up (22ms).
+[2025-04-10 13:44:42] Running plumbing command: codeql dataset cleanup -- /home/gra3ml/IC/Códigos_Claude3.7/database-claude/db-python
+[2025-04-10 13:44:42] [PROGRESS] dataset cleanup> Cleaning up dataset in /home/gra3ml/IC/Códigos_Claude3.7/database-claude/db-python.
+[2025-04-10 13:44:42] Trimming disk cache at /home/gra3ml/IC/Códigos_Claude3.7/database-claude/db-python/default/cache in mode trim.
+[2025-04-10 13:44:42] Sequence stamp origin is -6062159584292110975
+[2025-04-10 13:44:42] Pausing evaluation to quickly trim memory at sequence stamp o+0
+[2025-04-10 13:44:42] Unpausing evaluation
+[2025-04-10 13:44:42] Pausing evaluation to zealously trim disk at sequence stamp o+1
+[2025-04-10 13:44:42] Unpausing evaluation
+[2025-04-10 13:44:42] Trimming completed (3ms): Trimmed disposable data from cache.
+[2025-04-10 13:44:42] Pausing evaluation to close the cache at sequence stamp o+2
+[2025-04-10 13:44:42] The disk cache is freshly trimmed; leave it be.
+[2025-04-10 13:44:42] Unpausing evaluation
+[2025-04-10 13:44:42] [PROGRESS] dataset cleanup> Trimmed disposable data from cache.
+[2025-04-10 13:44:42] [PROGRESS] dataset cleanup> Finalizing dataset in /home/gra3ml/IC/Códigos_Claude3.7/database-claude/db-python
+[2025-04-10 13:44:42] [DETAILS] dataset cleanup> Finished deleting ID pool from /home/gra3ml/IC/Códigos_Claude3.7/database-claude/db-python (1ms).
+[2025-04-10 13:44:42] Plumbing command codeql dataset cleanup completed.
+[2025-04-10 13:44:42] Plumbing command codeql database cleanup completed with status 0.
+[2025-04-10 13:44:42] [PROGRESS] database finalize> Finished zipping source archive (107.87 KiB).
+[2025-04-10 13:44:42] Plumbing command codeql database finalize completed.
+[2025-04-10 13:44:42] [PROGRESS] database create> Successfully created database at /home/gra3ml/IC/Códigos_Claude3.7/database-claude.
+[2025-04-10 13:44:42] Terminating normally.

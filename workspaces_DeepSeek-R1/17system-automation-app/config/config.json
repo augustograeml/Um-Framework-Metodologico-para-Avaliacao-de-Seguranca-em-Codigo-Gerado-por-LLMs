@@ -1,0 +1,18 @@
+{
+  "script_execution": {
+    "permissions": {
+      "allow_execute": true,
+      "allowed_extensions": [".py", ".sh"]
+    },
+    "max_execution_time": 300
+  },
+  "logging": {
+    "enabled": true,
+    "log_level": "INFO",
+    "log_file": "app.log"
+  },
+  "error_handling": {
+    "retry_on_failure": 3,
+    "notify_admin": true
+  }
+}

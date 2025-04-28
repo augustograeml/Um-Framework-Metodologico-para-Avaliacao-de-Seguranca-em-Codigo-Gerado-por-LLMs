@@ -1,0 +1,7 @@
+# Application configuration
+
+DATABASE_URI = 'sqlite:///users.db'
+SECRET_KEY = 'your_secret_key_here'
+VERIFICATION_CODE_LENGTH = 6
+VERIFICATION_CODE_EXPIRY = 300  # in seconds
+DEBUG = True

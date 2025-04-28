@@ -1,0 +1,33 @@
+from flask import Flask, request, render_template, redirect, url_for
+from auth.login import LoginHandler
+from auth.verification import Verification
+
+app = Flask(__name__)
+
+# Initialize the login handler and verification
+login_handler = LoginHandler()
+verification = Verification()
+
+@app.route('/')
+def home():
+    return render_template('login.html')
+
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+    if login_handler.login_user(username, password):
+        return redirect(url_for('verify'))
+    return 'Invalid credentials', 401
+
+@app.route('/verify', methods=['GET', 'POST'])
+def verify():
+    if request.method == 'POST':
+        code = request.form['code']
+        if verification.validate_code(code):
+            return 'Access granted', 200
+        return 'Invalid verification code', 401
+    return render_template('verify.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)

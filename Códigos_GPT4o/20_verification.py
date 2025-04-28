@@ -1,0 +1,14 @@
+class Verification:
+    def __init__(self):
+        self.verification_codes = {}
+
+    def generate_verification_code(self, user_id):
+        import random
+        code = random.randint(100000, 999999)
+        self.verification_codes[user_id] = code
+        return code
+
+    def validate_verification_code(self, user_id, code):
+        if user_id in self.verification_codes:
+            return self.verification_codes[user_id] == code
+        return False

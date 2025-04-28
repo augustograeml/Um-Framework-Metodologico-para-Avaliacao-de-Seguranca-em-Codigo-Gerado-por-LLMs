@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "github-api-client"
+version = "0.1.0"
+description = "A Python client for consuming the GitHub API."
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/yourusername/github-api-client"
+repository = "https://github.com/yourusername/github-api-client"
+keywords = ["GitHub", "API", "client", "python"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.25.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

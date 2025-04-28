@@ -1,0 +1,14 @@
+{
+  "setting": "high",
+  "theme": "dark",
+  "language": "Python",
+  "version": "3.9",
+  "dependencies": {
+    "numpy": "1.21.0",
+    "requests": "2.26.0"
+  },
+  "features": {
+    "logging": true,
+    "caching": false
+  }
+}

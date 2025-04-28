@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <div class="parameters">
+            {% if parameters %}
+                <h2>Received Parameters</h2>
+                <ul>
+                    {% for key, value in parameters.items() %}
+                        <li><strong>{{ key }}:</strong> {{ value }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No parameters received.</p>
+            {% endif %}
+        </div>
+        <div class="customization">
+            <h2>Customize Interface</h2>
+            <form action="{{ url_for('admin.customize') }}" method="POST">
+                <label for="bg_color">Background Color:</label>
+                <input type="color" id="bg_color" name="bg_color" value="#ffffff">
+                <button type="submit">Apply</button>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/dynamic_ui.js') }}"></script>
+</body>
+</html>

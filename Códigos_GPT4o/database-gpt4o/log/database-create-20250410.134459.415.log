@@ -1,0 +1,823 @@
+[2025-04-10 13:44:59] This is codeql database create --language=python database-gpt4o
+[2025-04-10 13:44:59] Log file was started late.
+[2025-04-10 13:44:59] [PROGRESS] database create> Initializing database at /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o.
+[2025-04-10 13:44:59] Running plumbing command: codeql database init --language=python --extractor-options-verbosity=1 --qlconfig-file=/home/gra3ml/IC/Códigos_GPT4o/qlconfig.yml --source-root=/home/gra3ml/IC/Códigos_GPT4o --allow-missing-source-root=false --allow-already-existing -- /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o
+[2025-04-10 13:44:59] Calling plumbing command: codeql resolve languages --extractor-options-verbosity=1 --format=betterjson
+[2025-04-10 13:45:00] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/.codeqlmanifest.json
+[2025-04-10 13:45:00] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/go/codeql-extractor.yml.
+[2025-04-10 13:45:00] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/codeql-extractor.yml.
+[2025-04-10 13:45:00] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/properties/codeql-extractor.yml.
+[2025-04-10 13:45:00] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/java/codeql-extractor.yml.
+[2025-04-10 13:45:00] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/javascript/codeql-extractor.yml.
+[2025-04-10 13:45:00] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/html/codeql-extractor.yml.
+[2025-04-10 13:45:00] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/yaml/codeql-extractor.yml.
+[2025-04-10 13:45:00] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/ruby/codeql-extractor.yml.
+[2025-04-10 13:45:00] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/csharp/codeql-extractor.yml.
+[2025-04-10 13:45:00] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/cpp/codeql-extractor.yml.
+[2025-04-10 13:45:00] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/csv/codeql-extractor.yml.
+[2025-04-10 13:45:00] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/actions/codeql-extractor.yml.
+[2025-04-10 13:45:00] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/xml/codeql-extractor.yml.
+[2025-04-10 13:45:00] [DETAILS] resolve languages> Parsing /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/swift/codeql-extractor.yml.
+[2025-04-10 13:45:00] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "go" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/go",
+                              "extractor_options" : {
+                                "extract_tests" : {
+                                  "title" : "Whether to include Go test files in the CodeQL database.",
+                                  "description" : "A value indicating whether Go test files should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "extract_vendor_dirs" : {
+                                  "title" : "Whether to include Go vendor directories in the CodeQL database.",
+                                  "description" : "A value indicating whether Go vendor directories should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/properties"
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/html"
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/yaml"
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "binlog" : {
+                                  "title" : "Binlog",
+                                  "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+                                  "type" : "array"
+                                }
+                              }
+                            }
+                          ],
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/cpp",
+                              "extractor_options" : {
+                                "scale_timeouts" : {
+                                  "title" : "Value to scale compiler introspection timeouts with",
+                                  "description" : "The extractor attempts to determine what compiler the source code being extracted is compiled with. To this end the extractor makes additional calls to the compiler, some of which are expected to return within a certain fixed time (either 10s or 15s). On some systems that are under high load this time might be too short, and can be scaled up using this option.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-9]+"
+                                },
+                                "log_verbosity" : {
+                                  "title" : "Verbosity of the extractor logging",
+                                  "description" : "Set the verbosity of the extractor logging to 'quiet' (0), 'normal' (1), 'chatty' (2), or 'noisy' (3). The default is 'normal'.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-3]"
+                                }
+                              }
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/csv"
+                            }
+                          ],
+                          "actions" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/actions",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/xml"
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/swift"
+                            }
+                          ]
+                        }
+                      }
+[2025-04-10 13:45:00] [PROGRESS] database init> Calculating baseline information in /home/gra3ml/IC/Códigos_GPT4o
+[2025-04-10 13:45:00] [SPAMMY] database init> Ignoring the following directories when processing baseline information: .git, .hg, .svn.
+[2025-04-10 13:45:00] [DETAILS] database init> Running command in /home/gra3ml/IC/Códigos_GPT4o: /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/tools/linux64/scc --by-file --exclude-dir .git,.hg,.svn --format json --no-large --no-min .
+[2025-04-10 13:45:00] [SPAMMY] database init> Found 149 baseline files for python.
+[2025-04-10 13:45:00] [PROGRESS] database init> Calculated baseline information for languages: python (95ms).
+[2025-04-10 13:45:00] [PROGRESS] database init> Resolving extractor python.
+[2025-04-10 13:45:00] [DETAILS] database init> Found candidate extractor root for python: /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python.
+[2025-04-10 13:45:00] [PROGRESS] database init> Successfully loaded extractor Python (python) from /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python.
+[2025-04-10 13:45:00] [PROGRESS] database init> Created skeleton CodeQL database at /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o. This in-progress database is ready to be populated by an extractor.
+[2025-04-10 13:45:00] Plumbing command codeql database init completed.
+[2025-04-10 13:45:00] [PROGRESS] database create> Running build command: []
+[2025-04-10 13:45:00] Running plumbing command: codeql database trace-command --working-dir=/home/gra3ml/IC/Códigos_GPT4o --index-traceless-dbs --no-db-cluster -- /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o
+[2025-04-10 13:45:00] Using autobuild script /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools/autobuild.sh.
+[2025-04-10 13:45:00] [PROGRESS] database trace-command> Running command in /home/gra3ml/IC/Códigos_GPT4o: [/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools/autobuild.sh]
+[2025-04-10 13:45:00] [build-stderr] /bin/sh: 1: python2: not found
+[2025-04-10 13:45:01] [build-stdout] No directories containing root identifiers were found. Returning working directory as root.
+[2025-04-10 13:45:01] [build-stdout] Will try to guess Python version, as it was not specified in `lgtm.yml`
+[2025-04-10 13:45:01] [build-stdout] Trying to guess Python version based on Trove classifiers in setup.py
+[2025-04-10 13:45:01] [build-stdout] Did not find setup.py (expected it to be at /home/gra3ml/IC/Códigos_GPT4o/setup.py)
+[2025-04-10 13:45:01] [build-stdout] Trying to guess Python version based on travis file
+[2025-04-10 13:45:01] [build-stdout] Did not find any travis files (expected them at either ['/home/gra3ml/IC/Códigos_GPT4o/.travis.yml', '/home/gra3ml/IC/Códigos_GPT4o/travis.yml'])
+[2025-04-10 13:45:01] [build-stdout] Trying to guess Python version based on installed versions
+[2025-04-10 13:45:01] [build-stdout] Wanted to run Python 2, but it is not available. Using Python 3 instead
+[2025-04-10 13:45:01] [build-stdout] This script is running Python 3, but Python 2 is also available (as 'python3')
+[2025-04-10 13:45:01] [build-stdout] Could not guess Python version, will use default: Python 3
+[2025-04-10 13:45:01] [build-stdout] Calling python3 -S /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools/python_tracer.py --verbosity 3 -z all -c /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o/working/trap_cache -R /home/gra3ml/IC/Códigos_GPT4o
+[2025-04-10 13:45:01] [build-stdout] INFO: The Python extractor has recently stopped extracting the standard library by default. If you encounter problems, please let us know by submitting an issue to https://github.com/github/codeql. It is possible to re-enable extraction of the standard library by setting the environment variable CODEQL_EXTRACTOR_PYTHON_EXTRACT_STDLIB.
+[2025-04-10 13:45:01] [build-stdout] [INFO] Extraction will use the Python 3 standard library.
+[2025-04-10 13:45:01] [build-stdout] [INFO] sys_path is: ['/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools', '/usr/lib/python312.zip', '/usr/lib/python3.12', '/usr/lib/python3.12/lib-dynload']
+[2025-04-10 13:45:01] [build-stdout] [INFO] Python version 3.12.3
+[2025-04-10 13:45:01] [build-stdout] [INFO] Python extractor version 7.1.2
+[2025-04-10 13:45:02] [build-stdout] [WARN] [4] Failed to find .forms, no parent package of Python module at /home/gra3ml/IC/Códigos_GPT4o/1_routes.py
+[2025-04-10 13:45:02] [build-stdout] [WARN] [4] Failed to find .models, no parent package of Python module at /home/gra3ml/IC/Códigos_GPT4o/1_routes.py
+[2025-04-10 13:45:02] [build-stdout] [WARN] [4] Failed to find ., no parent package of Python module at /home/gra3ml/IC/Códigos_GPT4o/1_routes.py
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/6___init__.py in 27ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/11_download.py in 51ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/22_utils.py in 32ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/4_models.py in 59ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/10___init__.py in 23ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/10_main.py in 57ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/6_models.py in 65ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/12___init__.py in 24ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/16_interpreter.py in 35ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/1_routes.py in 116ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/13_executor.py in 34ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/1_config.py in 32ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/3___init__.py in 42ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/5_search.py in 48ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/23_test_save.py in 78ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/20_helpers.py in 13ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/30___init__.py in 4ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/3_forms.py in 38ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/23___init__.py in 5ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/2_admin.py in 48ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/6_email_validator.py in 35ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_GPT4o/22___init__.py in 11ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/16_evaluator.py in 106ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/2___init__.py in 4ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/11_file_service.py in 66ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/25_downloader.py in 33ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/2_main.py in 44ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/26_http_client.py in 29ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/12_forms.py in 47ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/29___init__.py in 4ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/25_main.py in 19ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/20___init__.py in 4ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/23_restore.py in 30ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/22_loader.py in 30ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/16_test_evaluator.py in 142ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/9___init__.py in 8ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/18_main.py in 39ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted folder /usr/lib/python3.12/json in 2ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/28___init__.py in 4ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/12_routes.py in 136ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/16_test_interpreter.py in 123ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/13_test_executor.py in 67ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/1_forms.py in 57ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/14___init__.py in 10ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_GPT4o/29_test_github_client.py in 138ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/21_main.py in 48ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/24___init__.py in 11ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/25_test_download.py in 95ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/16___init__.py in 5ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/9_account.py in 65ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_GPT4o/18_setup.py in 30ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/25_test_validators.py in 50ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/30_main.py in 35ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/25_download.py in 50ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/11___init__.py in 18ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted folder /usr/lib/python3.12/unittest in 2ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/22_setup.py in 20ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted folder /usr/lib/python3.12/importlib in 1ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/19_main.py in 66ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/27_analyzer.py in 26ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/5_user.py in 31ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/4___init__.py in 5ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Skipped built-in file /usr/lib/python3.12/os.py
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/20_main.py in 48ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/13___init__.py in 8ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/19___init__.py in 4ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_GPT4o/9_transfer_service.py in 66ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/27_main.py in 51ms
+[2025-04-10 13:45:02] [build-stdout] [WARN] [8] Failed to find .forms, no parent package of Python module at /home/gra3ml/IC/Códigos_GPT4o/7_routes.py
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/26_webhook_handler.py in 24ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/30_ec2_service.py in 69ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/30_auth.py in 33ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/1_models.py in 43ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/7_config.py in 18ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Skipped built-in file /usr/lib/python3.12/re/__init__.py
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/3_main.py in 140ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_GPT4o/7_routes.py in 56ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/20_db_handler.py in 39ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/16_test_parser.py in 138ms
+[2025-04-10 13:45:02] [build-stdout] [WARN] [6] Failed to find .forms, no parent package of Python module at /home/gra3ml/IC/Códigos_GPT4o/7___init__.py
+[2025-04-10 13:45:02] [build-stdout] [WARN] [6] Failed to find ., no parent package of Python module at /home/gra3ml/IC/Códigos_GPT4o/7___init__.py
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/7___init__.py in 20ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/23_save.py in 42ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_GPT4o/28_connection.py in 36ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/29_main.py in 66ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_GPT4o/20_login.py in 17ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/1_test_routes.py in 83ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted module sys in 1ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/22_test_utils.py in 74ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/18_test_dynamic_loader.py in 107ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/27_test_analyzer.py in 102ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted folder /usr/lib/python3.12/re in 2ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_GPT4o/13_main.py in 26ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/27___init__.py in 7ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/9_main.py in 56ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/26_test_app.py in 69ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/17_example_script.py in 24ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/2_helpers.py in 65ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_GPT4o/4_utils.py in 27ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/5___init__.py in 19ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/26_app.py in 56ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/17_settings.py in 38ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/1___init__.py in 7ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/9_transfer.py in 71ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/10_file_handler.py in 21ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_GPT4o/28_models.py in 51ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/22_saver.py in 57ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/17_main.py in 61ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/24_test_json_importer.py in 77ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/7_run.py in 17ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/6_config.py in 20ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/26_test_webhook_handler.py in 140ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/4_database.py in 58ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/18_dynamic_loader.py in 74ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted folder /usr/lib/python3.12/urllib in 1ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/5_search_service.py in 122ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/15_main.py in 37ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/12_config.py in 41ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/9_validation.py in 72ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/14_log_analysis.py in 32ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Skipped built-in file /usr/lib/python3.12/importlib/__init__.py
+[2025-04-10 13:45:02] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_GPT4o/9_test_transfer.py in 129ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/23_test_restore.py in 68ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/24_json_importer.py in 19ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/13_commands.py in 83ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/6_main.py in 71ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Skipped built-in file /usr/lib/python3.12/urllib/parse.py
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/29_config.py in 40ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Skipped built-in file /usr/lib/python3.12/unittest/__init__.py
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/28_utils.py in 150ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Skipped built-in file /usr/lib/python3.12/sqlite3/__init__.py
+[2025-04-10 13:45:02] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/6_routes.py in 170ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/12_run.py in 40ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/16_parser.py in 48ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/5_main.py in 69ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_GPT4o/14_main.py in 114ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/25_validators.py in 37ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/17_helpers.py in 120ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/22_test_loader.py in 83ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/30_aws_config.py in 123ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/28_routes.py in 199ms
+[2025-04-10 13:45:02] [build-stdout] [INFO] [2] Skipped built-in file /usr/lib/python3.12/subprocess.py
+[2025-04-10 13:45:02] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/5_config.py in 22ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/25___init__.py in 9ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/11_main.py in 59ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [4] Skipped built-in file /usr/lib/python3.12/datetime.py
+[2025-04-10 13:45:03] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/20_verification.py in 84ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_GPT4o/6_password_service.py in 64ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/4_main.py in 121ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [7] Skipped built-in file /usr/lib/python3.12/importlib/util.py
+[2025-04-10 13:45:03] [build-stdout] [INFO] [8] Skipped built-in file /usr/lib/python3.12/hashlib.py
+[2025-04-10 13:45:03] [build-stdout] [INFO] [7] Skipped built-in file /usr/lib/python3.12/unittest/mock.py
+[2025-04-10 13:45:03] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/18___init__.py in 13ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [1] Extracted folder /usr/lib/python3.12/sqlite3 in 2ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/29_github_client.py in 106ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/27_helpers.py in 19ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/9_test_validation.py in 85ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/7_forms.py in 97ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/18_sample_extension.py in 15ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/3_models.py in 71ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/27_client.py in 83ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [1] Skipped built-in file /usr/lib/python3.12/urllib/__init__.py
+[2025-04-10 13:45:03] [build-stdout] [INFO] [1] Skipped built-in file /usr/lib/python3.12/pickle.py
+[2025-04-10 13:45:03] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_GPT4o/24_main.py in 91ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [8] Skipped built-in file /usr/lib/python3.12/json/__init__.py
+[2025-04-10 13:45:03] [build-stdout] [INFO] [2] Extracted file /home/gra3ml/IC/Códigos_GPT4o/4_test_login.py in 136ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [3] Extracted file /home/gra3ml/IC/Códigos_GPT4o/28_main.py in 42ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [6] Extracted file /home/gra3ml/IC/Códigos_GPT4o/14_test_log_analysis.py in 163ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [5] Extracted file /home/gra3ml/IC/Códigos_GPT4o/22_test_saver.py in 92ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [7] Extracted file /home/gra3ml/IC/Códigos_GPT4o/13_test_commands.py in 84ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [4] Extracted file /home/gra3ml/IC/Códigos_GPT4o/27_test_client.py in 68ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [8] Extracted file /home/gra3ml/IC/Códigos_GPT4o/2_test_routes.py in 78ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] [1] Extracted file /home/gra3ml/IC/Códigos_GPT4o/28_test_auth.py in 95ms
+[2025-04-10 13:45:03] [build-stdout] [INFO] Processed 170 modules in 1.42s
+[2025-04-10 13:45:03] Plumbing command codeql database trace-command completed.
+[2025-04-10 13:45:03] [PROGRESS] database create> Finalizing database at /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o.
+[2025-04-10 13:45:03] Running plumbing command: codeql database finalize --no-db-cluster -- /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o
+[2025-04-10 13:45:03] Using pre-finalize script /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools/pre-finalize.sh.
+[2025-04-10 13:45:03] [PROGRESS] database finalize> Running pre-finalize script /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools/pre-finalize.sh in /home/gra3ml/IC/Códigos_GPT4o.
+[2025-04-10 13:45:03] Running plumbing command: codeql database trace-command --working-dir=/home/gra3ml/IC/Códigos_GPT4o --no-tracing -- /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o /home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools/pre-finalize.sh
+[2025-04-10 13:45:03] [PROGRESS] database trace-command> Running command in /home/gra3ml/IC/Códigos_GPT4o: [/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/tools/pre-finalize.sh]
+[2025-04-10 13:45:05] [build-stderr] Scanning for files in /home/gra3ml/IC/Códigos_GPT4o...
+[2025-04-10 13:45:05] [build-stderr] /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o: Indexing files in in /home/gra3ml/IC/Códigos_GPT4o...
+[2025-04-10 13:45:05] [build-stderr] Running command in /home/gra3ml/IC/Códigos_GPT4o: [/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/yaml/tools/index-files.sh, /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o/working/files-to-index7499452076814635718.list]
+[2025-04-10 13:45:06] Plumbing command codeql database trace-command completed.
+[2025-04-10 13:45:06] [PROGRESS] database finalize> Running TRAP import for CodeQL database at /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o...
+[2025-04-10 13:45:06] Running plumbing command: codeql dataset import --dbscheme=/home/gra3ml/.local/share/gh/extensions/gh-codeql/dist/release/v2.20.4/python/semmlecode.python.dbscheme -- /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o/db-python /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o/trap/python
+[2025-04-10 13:45:06] Clearing disk cache since the version file /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o/db-python/default/cache/version does not exist
+[2025-04-10 13:45:06] Tuple pool not found. Clearing relations with cached strings
+[2025-04-10 13:45:06] Trimming disk cache at /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o/db-python/default/cache in mode clear.
+[2025-04-10 13:45:06] Sequence stamp origin is -6062159480035892227
+[2025-04-10 13:45:06] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2025-04-10 13:45:06] Unpausing evaluation
+[2025-04-10 13:45:06] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2025-04-10 13:45:06] Unpausing evaluation
+[2025-04-10 13:45:06] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2025-04-10 13:45:06] Unpausing evaluation
+[2025-04-10 13:45:06] Trimming completed (13ms): Purged everything.
+[2025-04-10 13:45:06] Scanning for files in /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o/trap/python
+[2025-04-10 13:45:06] Found 169 TRAP files (1.17 MiB)
+[2025-04-10 13:45:06] [PROGRESS] dataset import> Importing TRAP files
+[2025-04-10 13:45:06] Importing $files.0FmNVwRgoP5lZJW62lAndQ_WILg=.trap.gz (1 of 169)
+[2025-04-10 13:45:06] Importing $files.1vPYAbEujWSqs2Mdq-ixzGqTkp4=.trap.gz (2 of 169)
+[2025-04-10 13:45:06] Importing $files.4aq-eQJoDyjZpHCiqm8wlE5cfLE=.trap.gz (3 of 169)
+[2025-04-10 13:45:06] Importing $files.Bcz4ERDxh1mQw1frM4ZzS5Ht23w=.trap.gz (4 of 169)
+[2025-04-10 13:45:06] Importing $files.MbZDqbXdegs-qKaS9n5moRt7_Vo=.trap.gz (5 of 169)
+[2025-04-10 13:45:06] Importing $files._eGyUbZsC2kgqo8FayXDaLF5K4g=.trap.gz (6 of 169)
+[2025-04-10 13:45:06] Importing $files.bsxaFrAO-5iyGN2PtNQ1oZD3FrE=.trap.gz (7 of 169)
+[2025-04-10 13:45:06] Importing $files.mE7uo02X_gkpGxN_2berLrMolPU=.trap.gz (8 of 169)
+[2025-04-10 13:45:06] Importing $flags.VbVftT9-KVu6DObVk7sNdT8L3zs=.trap.gz (9 of 169)
+[2025-04-10 13:45:06] Importing $interpreter3.8cGsb3ICg2Qmzppb7D04c0ipRwg=.trap.gz (10 of 169)
+[2025-04-10 13:45:07] Importing $stdlib_33.Oc4ey41r06AvSkM9c1NAw26jIx4=.trap (11 of 169)
+[2025-04-10 13:45:07] Importing 10___init__.py.iRGykcEi_QYuFvux70DHT0v5YSU=.trap.gz (12 of 169)
+[2025-04-10 13:45:07] Importing 10_file_handler.py.FzEzDYetpw8dBSc3WpZ4kOOaCRg=.trap.gz (13 of 169)
+[2025-04-10 13:45:07] Importing 10_main.py.FsX35YfYSS0edmMDM3eCaksJo6Q=.trap.gz (14 of 169)
+[2025-04-10 13:45:07] Importing 11___init__.py.LmybtG39Pxxhe9rmsHQiAy9C6zE=.trap.gz (15 of 169)
+[2025-04-10 13:45:07] Importing 11_download.py.ff5GQmlFDX3nC1nQQ_IdwPksM20=.trap.gz (16 of 169)
+[2025-04-10 13:45:07] Importing 11_file_service.py.-B239tyqcYciky3ZQBiqArTLgaE=.trap.gz (17 of 169)
+[2025-04-10 13:45:07] Importing 11_main.py.5W65hl7cC2gvPdsdBDhuRhYi1LI=.trap.gz (18 of 169)
+[2025-04-10 13:45:07] Importing 12___init__.py.nPf9ERWvpLeu0K0Ni-qf8urGS1g=.trap.gz (19 of 169)
+[2025-04-10 13:45:07] Importing 12_config.py.iwDX-90-ynN_wbejdEr1uc-wCNU=.trap.gz (20 of 169)
+[2025-04-10 13:45:07] Importing 12_forms.py.RlxRFVfJH2l-NpUPymAymiG-Kf0=.trap.gz (21 of 169)
+[2025-04-10 13:45:07] Importing 12_routes.py.KE9uPFri8PJqZxz2eRiV6T5-xbU=.trap.gz (22 of 169)
+[2025-04-10 13:45:07] Importing 12_run.py.GLJ_DB7SEekRLS5bJ4IP8rrJZRA=.trap.gz (23 of 169)
+[2025-04-10 13:45:07] Importing 13___init__.py.oq6OnjZr0YNoILW8qrLc03GtCLU=.trap.gz (24 of 169)
+[2025-04-10 13:45:07] Importing 13_commands.py.AJ9lEbhXpANJdIXVmAr-oNag3n4=.trap.gz (25 of 169)
+[2025-04-10 13:45:07] Importing 13_executor.py.-8vNXrM1jL6LgdgkxVKwe9UI0JM=.trap.gz (26 of 169)
+[2025-04-10 13:45:07] Importing 13_main.py.zisACzPXav2K1UVaV82kw_D6nEQ=.trap.gz (27 of 169)
+[2025-04-10 13:45:07] Importing 13_test_commands.py.iWkYQRItLqRdKOUW92-JHbUrrHg=.trap.gz (28 of 169)
+[2025-04-10 13:45:07] Importing 13_test_executor.py.kzmMQNnR1MAtqjWGGmp_pUtAVJs=.trap.gz (29 of 169)
+[2025-04-10 13:45:07] Importing 14___init__.py.47juxbuj28pj5iVdxmoHO1EsAJo=.trap.gz (30 of 169)
+[2025-04-10 13:45:07] Importing 14_log_analysis.py.kl_tvvohT6MnP7oq2yw3ybQCWKs=.trap.gz (31 of 169)
+[2025-04-10 13:45:07] Importing 14_main.py.CZPjmZ4kg6ExFSwLkYt2xTIJrok=.trap.gz (32 of 169)
+[2025-04-10 13:45:07] Importing 14_test_log_analysis.py.l7TeRT5CSIm9yghd7OmFs38pgCM=.trap.gz (33 of 169)
+[2025-04-10 13:45:07] Importing 15_main.py.ieTE8fcWrfIYtsDSWR059PnFr5Q=.trap.gz (34 of 169)
+[2025-04-10 13:45:07] Importing 16___init__.py.hlXHsXoKAl6lW9ZGDZswzu362lI=.trap.gz (35 of 169)
+[2025-04-10 13:45:07] Importing 16_evaluator.py.UShV7E9GuKdXE1xnzZMM5vjTxiQ=.trap.gz (36 of 169)
+[2025-04-10 13:45:07] Importing 16_interpreter.py.bDE44JyIaQoTcfONs0InnoF8PT0=.trap.gz (37 of 169)
+[2025-04-10 13:45:07] Importing 16_parser.py.aVhdWxhfgosrse_YalxoJWrZRUI=.trap.gz (38 of 169)
+[2025-04-10 13:45:07] Importing 16_test_evaluator.py.N7PZz6dTWloeD6YPnKFyQ2GGJYs=.trap.gz (39 of 169)
+[2025-04-10 13:45:07] Importing 16_test_interpreter.py.r6XF9DJpSHOsi9n16vLR8t3uYL4=.trap.gz (40 of 169)
+[2025-04-10 13:45:07] Importing 16_test_parser.py.Y1dRAJ3aOIPxVFZKHitM2XI5HfY=.trap.gz (41 of 169)
+[2025-04-10 13:45:07] Importing 17_example_script.py.7gD-cJuIK1W2iQJ0Mphbd0C3MKM=.trap.gz (42 of 169)
+[2025-04-10 13:45:07] Importing 17_helpers.py.yUNwPsJa47syqPW8ckvfIDI2TtM=.trap.gz (43 of 169)
+[2025-04-10 13:45:07] Importing 17_main.py.X07Yzd0TiG-2ujepqx8Jf1yhvrs=.trap.gz (44 of 169)
+[2025-04-10 13:45:07] Importing 17_settings.py.JG0Fv8PtOnCGozFPOmemmzzetDY=.trap.gz (45 of 169)
+[2025-04-10 13:45:07] Importing 18___init__.py.es8gFd6utEgzLU_YIMY__WOvaEM=.trap.gz (46 of 169)
+[2025-04-10 13:45:07] Importing 18_dynamic_loader.py.FsiY23YRQLgLNzj28D4HFWI_enU=.trap.gz (47 of 169)
+[2025-04-10 13:45:07] Importing 18_main.py.kytWXpIdY1URICbYgZwD5mofeWg=.trap.gz (48 of 169)
+[2025-04-10 13:45:07] Importing 18_sample_extension.py.tQVrudxhYA4qgTxX2vTYXXAPrN4=.trap.gz (49 of 169)
+[2025-04-10 13:45:07] Importing 18_setup.py.XaY1frplrf-TgvbljxvocRc8JCs=.trap.gz (50 of 169)
+[2025-04-10 13:45:07] Importing 18_test_dynamic_loader.py.SsKLaH7bxiidu4KNGXdbofa171o=.trap.gz (51 of 169)
+[2025-04-10 13:45:07] Importing 19___init__.py.RCbXAZPZpEyLSCqU3pXpw3ny7YM=.trap.gz (52 of 169)
+[2025-04-10 13:45:07] Importing 19_main.py.Q9yzRPBqo26P2cDC87a-Q9jypuk=.trap.gz (53 of 169)
+[2025-04-10 13:45:07] Importing 1___init__.py.ryIAA334XKOn5q7zRvCyLC3HvnA=.trap.gz (54 of 169)
+[2025-04-10 13:45:07] Importing 1_config.py.aycN47dtPiAiLfK9XqmT0FF6Cug=.trap.gz (55 of 169)
+[2025-04-10 13:45:07] Importing 1_forms.py.FgPm4t8KG0eW7iRRDp8mnoZ_qpI=.trap.gz (56 of 169)
+[2025-04-10 13:45:07] Importing 1_models.py.HXBu-KmSByZHHlsOFjil2rT_Eo8=.trap.gz (57 of 169)
+[2025-04-10 13:45:07] Importing 1_routes.py.VZH4Z_aROQ5ZwaIPPNCFDat9ffo=.trap.gz (58 of 169)
+[2025-04-10 13:45:07] Importing 1_test_routes.py.6DTR06SU82glnJeiNDFICsAA3SI=.trap.gz (59 of 169)
+[2025-04-10 13:45:07] Importing 20___init__.py.41QiLq2PZe-xTWCBBo9EI5MOkYk=.trap.gz (60 of 169)
+[2025-04-10 13:45:07] Importing 20_db_handler.py.h9x-p7b9vuLD6PHWlEKfa_RsDIw=.trap.gz (61 of 169)
+[2025-04-10 13:45:07] Importing 20_helpers.py.X14Wf27hcHRa1FMrvKUz51_nTMQ=.trap.gz (62 of 169)
+[2025-04-10 13:45:07] Importing 20_login.py.vA7mOLWzIKAVanMxl3jaE3mjv8U=.trap.gz (63 of 169)
+[2025-04-10 13:45:07] Importing 20_main.py.ARKEHlfJFgGu0WW0kVVmUBXb3Cg=.trap.gz (64 of 169)
+[2025-04-10 13:45:07] Importing 20_verification.py.pesId3GlnPuexZtDIR5fOhmuDhQ=.trap.gz (65 of 169)
+[2025-04-10 13:45:07] Importing 21_main.py.Eppo5HY2jzcvxSXRjtCkThvM30E=.trap.gz (66 of 169)
+[2025-04-10 13:45:07] Importing 22___init__.py.BJqdeiLUuyKcW-1QsmCaAxbWp6A=.trap.gz (67 of 169)
+[2025-04-10 13:45:07] Importing 22_loader.py.n7z78OY6_nuCMRO4zUZRGjKJ4U8=.trap.gz (68 of 169)
+[2025-04-10 13:45:07] Importing 22_saver.py.N3pnJxJk6F7LC-aq7O__JmFNh0I=.trap.gz (69 of 169)
+[2025-04-10 13:45:07] Importing 22_setup.py.tZ6sHY2RyZnxaDyy4z4xQgFSS5g=.trap.gz (70 of 169)
+[2025-04-10 13:45:07] Importing 22_test_loader.py.h5buWEsIjvzT_OF91CTj-3SwPwM=.trap.gz (71 of 169)
+[2025-04-10 13:45:07] Importing 22_test_saver.py.PQnhqQemj0cNSDDBSOmcbRckqgs=.trap.gz (72 of 169)
+[2025-04-10 13:45:07] Importing 22_test_utils.py.7MiL3EP-3YPyFcnnBdaKmbWOPSg=.trap.gz (73 of 169)
+[2025-04-10 13:45:07] Importing 22_utils.py.9nDvesb8SSBmadxAVHy9abuiuzQ=.trap.gz (74 of 169)
+[2025-04-10 13:45:07] Importing 23___init__.py.WCqA31A4MLCOVlFqBhlfxskhF1I=.trap.gz (75 of 169)
+[2025-04-10 13:45:07] Importing 23_restore.py.i6flvZpwQmcc6jEFRxptVqvPtEU=.trap.gz (76 of 169)
+[2025-04-10 13:45:07] Importing 23_save.py.p6m6sFj_ilsTkXKYmIKCCPS2sCM=.trap.gz (77 of 169)
+[2025-04-10 13:45:07] Importing 23_test_restore.py.EOq_vj6vf5_jplqc7Un50qH7Moo=.trap.gz (78 of 169)
+[2025-04-10 13:45:07] Importing 23_test_save.py.Gi-dBV-pzzddpJmH1IOC6v3FmUs=.trap.gz (79 of 169)
+[2025-04-10 13:45:07] Importing 24___init__.py.y2DmRWrvw8vbVkj-g_CELjO4LeU=.trap.gz (80 of 169)
+[2025-04-10 13:45:07] Importing 24_json_importer.py.V7eglk9a-Rgouar9iz2re8DkYhw=.trap.gz (81 of 169)
+[2025-04-10 13:45:07] Importing 24_main.py.T27Cw_xqLF5lK622Wr6zDrPZ7Zk=.trap.gz (82 of 169)
+[2025-04-10 13:45:07] Importing 24_test_json_importer.py.nQDRbMicPbKu0T4_I-CSQdstZOs=.trap.gz (83 of 169)
+[2025-04-10 13:45:07] Importing 25___init__.py.0aC24LdBOO5At73alK1sj9jlDdk=.trap.gz (84 of 169)
+[2025-04-10 13:45:07] Importing 25_download.py._XtM_ISVYZorqDjaYOUKLEfqPCQ=.trap.gz (85 of 169)
+[2025-04-10 13:45:07] Importing 25_downloader.py.fG49pUXhUhPEJ1c8_QWqoY7yAqo=.trap.gz (86 of 169)
+[2025-04-10 13:45:07] Importing 25_main.py.sWP9JxKcIMWVsqDKy8mDqmXG_Wg=.trap.gz (87 of 169)
+[2025-04-10 13:45:07] Importing 25_test_download.py.I-yPhLA21saEkYctNc9e8qwHlLs=.trap.gz (88 of 169)
+[2025-04-10 13:45:07] Importing 25_test_validators.py.uekTuFROfMl2OQhZvf-yXldTYwc=.trap.gz (89 of 169)
+[2025-04-10 13:45:07] Importing 25_validators.py.i8Ox8pfXi4rdxrPU5qL2apaUXYc=.trap.gz (90 of 169)
+[2025-04-10 13:45:07] Importing 26_app.py.jMotF1t4PQ6BunYC5AfRTh1RAuE=.trap.gz (91 of 169)
+[2025-04-10 13:45:07] Importing 26_http_client.py.RWjCiazeY_uv6jW0SQGo2_17D74=.trap.gz (92 of 169)
+[2025-04-10 13:45:07] Importing 26_test_app.py.UddvxKevjXp80UaWw9VokoScjMc=.trap.gz (93 of 169)
+[2025-04-10 13:45:07] Importing 26_test_webhook_handler.py.zoCtXNW2qYXmprEpQhePUn-Rq00=.trap.gz (94 of 169)
+[2025-04-10 13:45:07] Importing 26_webhook_handler.py.vxO0z6D6ERBb9gDPsKo6P7fSfwQ=.trap.gz (95 of 169)
+[2025-04-10 13:45:07] Importing 27___init__.py.5N1SwNAp-U9H9KmL25nT9a7moDE=.trap.gz (96 of 169)
+[2025-04-10 13:45:07] Importing 27_analyzer.py.CO3ANxHAgggyqTexxaNurS4N8kg=.trap.gz (97 of 169)
+[2025-04-10 13:45:07] Importing 27_client.py.SBtMkRtSqEMM8DykYGN8cEsv7i0=.trap.gz (98 of 169)
+[2025-04-10 13:45:07] Importing 27_helpers.py.SrGY8d07lN4xDjvb-QxcCUMy4UI=.trap.gz (99 of 169)
+[2025-04-10 13:45:07] Importing 27_main.py.VKiYALVDu-YuWbpYDjm0EkHv8fQ=.trap.gz (100 of 169)
+[2025-04-10 13:45:07] Importing 27_test_analyzer.py.1nUKTQMabELd0hY92AwFxHLTjLM=.trap.gz (101 of 169)
+[2025-04-10 13:45:07] Importing 27_test_client.py.ChF_c6auBatD2d2mM4uTrPRtIVw=.trap.gz (102 of 169)
+[2025-04-10 13:45:07] Importing 28___init__.py.tYfhkDTVUwCMQBidEkYDrCFRSuM=.trap.gz (103 of 169)
+[2025-04-10 13:45:07] Importing 28_connection.py.TIZcQ364nJPmBNjm3Kns1c_aQtw=.trap.gz (104 of 169)
+[2025-04-10 13:45:07] Importing 28_main.py.7jt_TjH7H7yvHMgWgrFD8QHoAuc=.trap.gz (105 of 169)
+[2025-04-10 13:45:07] Importing 28_models.py.8qb-oFNhXZpwR2rVXvgQ-MM3x98=.trap.gz (106 of 169)
+[2025-04-10 13:45:07] Importing 28_routes.py.Zcrg9nIcuJX2T-aXlIGuNCkz_NM=.trap.gz (107 of 169)
+[2025-04-10 13:45:07] Importing 28_test_auth.py.BUjtKD9uLb1TcBzPHqUyNIt-I-M=.trap.gz (108 of 169)
+[2025-04-10 13:45:07] Importing 28_utils.py.i4ZPg81GsslvXJLhTq2QvBEiFa8=.trap.gz (109 of 169)
+[2025-04-10 13:45:07] Importing 29___init__.py.DMCooNRZYGk92bq3_3K42MgRacI=.trap.gz (110 of 169)
+[2025-04-10 13:45:07] Importing 29_config.py.3vfgZBLtXVip79ohrGMIbbluomg=.trap.gz (111 of 169)
+[2025-04-10 13:45:07] Importing 29_github_client.py.T56qpjr6iaQAVTKhlKkiFm4_2uU=.trap.gz (112 of 169)
+[2025-04-10 13:45:07] Importing 29_main.py.74DyDuG9xFuKqqGb4cEw2_Hth88=.trap.gz (113 of 169)
+[2025-04-10 13:45:07] Importing 29_test_github_client.py.B0dTtl_tUdTyL5cg9pP9SajT0Zs=.trap.gz (114 of 169)
+[2025-04-10 13:45:07] Importing 2___init__.py.WMeReupOwZtnspTl-RY-LITu63E=.trap.gz (115 of 169)
+[2025-04-10 13:45:07] Importing 2_admin.py.Bw9eLYJ86kVoN-YTg2nb7JNnCk0=.trap.gz (116 of 169)
+[2025-04-10 13:45:07] Importing 2_helpers.py.2cfM3ztLChqXCy4CxckDyRRtiQw=.trap.gz (117 of 169)
+[2025-04-10 13:45:07] Importing 2_main.py.e_pWLj3y7icI87mpVWW3dd4eY9k=.trap.gz (118 of 169)
+[2025-04-10 13:45:07] Importing 2_test_routes.py.MEgQsZNFdS6Xglk5EwBpbNVLDxI=.trap.gz (119 of 169)
+[2025-04-10 13:45:07] Importing 30___init__.py.9V7WBhM6r_w_y96xYyXFuLwbXJQ=.trap.gz (120 of 169)
+[2025-04-10 13:45:07] Importing 30_auth.py.IU-AnoWyp_NNPSFBvnwgA21lSHE=.trap.gz (121 of 169)
+[2025-04-10 13:45:07] Importing 30_aws_config.py.3lxkhIzckciHgny0YH4dEFqmmp4=.trap.gz (122 of 169)
+[2025-04-10 13:45:07] Importing 30_ec2_service.py.cJdpavNVWn-KQD2XzDf4yZKkAnI=.trap.gz (123 of 169)
+[2025-04-10 13:45:07] Importing 30_main.py.H9-s7t41I7Q0hEPJ4hX-Qysoy3Y=.trap.gz (124 of 169)
+[2025-04-10 13:45:07] Importing 3___init__.py.jskTWoZk1DDxLKEfq7llXdnQiN0=.trap.gz (125 of 169)
+[2025-04-10 13:45:07] Importing 3_forms.py.NGHZqcyo_2iHhzoV3QSYimI87gY=.trap.gz (126 of 169)
+[2025-04-10 13:45:07] Importing 3_main.py.tHXQIZcCiYeNoqXZWDByGJ7nM7U=.trap.gz (127 of 169)
+[2025-04-10 13:45:07] Importing 3_models.py.6COx89G4jzsri-of18UWNPTrwRE=.trap.gz (128 of 169)
+[2025-04-10 13:45:07] Importing 4___init__.py.68hHrX88Y4dzMdxDJ0c6voan3Ec=.trap.gz (129 of 169)
+[2025-04-10 13:45:07] Importing 4_database.py.RGY-OtSe6bZiOopFb241U5ELny8=.trap.gz (130 of 169)
+[2025-04-10 13:45:07] Importing 4_main.py.PnaVxkvS69PvpT5RzUszidhonig=.trap.gz (131 of 169)
+[2025-04-10 13:45:07] Importing 4_models.py.NtoCU1V6XZ4hOK0X8x2o4fh3xaA=.trap.gz (132 of 169)
+[2025-04-10 13:45:07] Importing 4_test_login.py.chZZ2qR94rE0siwY0-t7_rWCgTc=.trap.gz (133 of 169)
+[2025-04-10 13:45:07] Importing 4_utils.py.uUQ4wJEV0gt_F09hOd3zPP8byXw=.trap.gz (134 of 169)
+[2025-04-10 13:45:07] Importing 5___init__.py.lua9MRKLYZhwqwQy4_HggEmjGKI=.trap.gz (135 of 169)
+[2025-04-10 13:45:07] Importing 5_config.py.1Yadl0mIHTUOjKMYiwkZXgAt4_w=.trap.gz (136 of 169)
+[2025-04-10 13:45:07] Importing 5_main.py.mFA1mTeAbML2Vn3JEvxVuBBntNk=.trap.gz (137 of 169)
+[2025-04-10 13:45:07] Importing 5_search.py.t5cRCgDNlH_Fp21KBiAT0QG8qhM=.trap.gz (138 of 169)
+[2025-04-10 13:45:07] Importing 5_search_service.py.UHGTuiv12qRDm2j9LFeA8r9YvGg=.trap.gz (139 of 169)
+[2025-04-10 13:45:07] Importing 5_user.py.Q4yS0gJXhjQoSvUNP_1rKo1P3PE=.trap.gz (140 of 169)
+[2025-04-10 13:45:07] Importing 6___init__.py.VvwuCml9DFzOkqBapf_Czm7HetE=.trap.gz (141 of 169)
+[2025-04-10 13:45:07] Importing 6_config.py.pFuV86S2MRCYaRWC1sbSiZ-OcYo=.trap.gz (142 of 169)
+[2025-04-10 13:45:07] Importing 6_email_validator.py.FclvILM_047b_QGgFicQjhZDDt4=.trap.gz (143 of 169)
+[2025-04-10 13:45:07] Importing 6_main.py.Zs38lmOEwkj6bO3zGDwxKe1Oj20=.trap.gz (144 of 169)
+[2025-04-10 13:45:07] Importing 6_models.py.45prErrY0dbEnNCjN9OeZ3o1H4Y=.trap.gz (145 of 169)
+[2025-04-10 13:45:07] Importing 6_password_service.py.a0fzna45kqOt5NqJLPID6tOEskA=.trap.gz (146 of 169)
+[2025-04-10 13:45:07] Importing 6_routes.py.W0g2sXJWPcbSEZhqJCVxkOa3xR8=.trap.gz (147 of 169)
+[2025-04-10 13:45:07] Importing 7___init__.py.cfdlU7zfeY-6xiANfehjoeDpj8Q=.trap.gz (148 of 169)
+[2025-04-10 13:45:07] Importing 7_config.py.iejFdav_HclCSFuq3k69luiy5Ww=.trap.gz (149 of 169)
+[2025-04-10 13:45:07] Importing 7_forms.py.6HN1jmuJuQAbbOQdMdZ31IJ6jOY=.trap.gz (150 of 169)
+[2025-04-10 13:45:07] Importing 7_routes.py.35DzMOci2-B1xsduXSbeR-5206o=.trap.gz (151 of 169)
+[2025-04-10 13:45:07] Importing 7_run.py.zlS5yksEZKCrVhzFnOO_c58Bn68=.trap.gz (152 of 169)
+[2025-04-10 13:45:07] Importing 9___init__.py.qv8HmwuyeeXtJowNra0a6h9J5Co=.trap.gz (153 of 169)
+[2025-04-10 13:45:07] Importing 9_account.py.xj1dGNUjGITU35wqy109tMmO0vw=.trap.gz (154 of 169)
+[2025-04-10 13:45:07] Importing 9_main.py.UQ4Df1tNevraxPaSaUPp9O1B3yY=.trap.gz (155 of 169)
+[2025-04-10 13:45:07] Importing 9_test_transfer.py.Je42IOyrijZBPPFC6BexQ9GPb_s=.trap.gz (156 of 169)
+[2025-04-10 13:45:07] Importing 9_test_validation.py.IvzVZtUIfzUGCamoUCrm9HEtGvE=.trap.gz (157 of 169)
+[2025-04-10 13:45:07] Importing 9_transfer.py.iXexv7nDpiM4H0npvEkTphlyTK8=.trap.gz (158 of 169)
+[2025-04-10 13:45:07] Importing 9_transfer_service.py.tPwBrhbwS-g66wyyIo-VkI_i9_U=.trap.gz (159 of 169)
+[2025-04-10 13:45:07] Importing 9_validation.py.SOOeGjXT2VdvRzWDr4VxMGfLYQg=.trap.gz (160 of 169)
+[2025-04-10 13:45:07] Importing codeql-database.yml.trap.gz (161 of 169)
+[2025-04-10 13:45:07] Importing importlib.dhd-aACEdhCLere2qZl8eC3DKB0=.trap.gz (162 of 169)
+[2025-04-10 13:45:07] Importing json._eyrnD0F41RSKn4udjv-sH5gSNE=.trap.gz (163 of 169)
+[2025-04-10 13:45:07] Importing metadata.trap.gz (164 of 169)
+[2025-04-10 13:45:07] Importing re.qkoimtbTAqzKb70pn8P4VYGd1WI=.trap.gz (165 of 169)
+[2025-04-10 13:45:07] Importing sqlite3.as3xtLp4oFARZ5g5vltOc0gdUaE=.trap.gz (166 of 169)
+[2025-04-10 13:45:07] Importing sys.Cppd5hjkXM_DE5qw4nCoN_SNZ58=.trap.gz (167 of 169)
+[2025-04-10 13:45:07] Importing unittest.YXZCFN-KUYREkcG5g7GeaJRHU-c=.trap.gz (168 of 169)
+[2025-04-10 13:45:07] Importing urllib.Qx30OrAjj4XbNHtAL0IeW1HhuSc=.trap.gz (169 of 169)
+[2025-04-10 13:45:07] [PROGRESS] dataset import> Merging relations
+[2025-04-10 13:45:07] Merging 1 fragment for 'files'.
+[2025-04-10 13:45:07] Merged 328 bytes for 'files'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'folders'.
+[2025-04-10 13:45:07] Merged 59 bytes for 'folders'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'containerparent'.
+[2025-04-10 13:45:07] Merged 211 bytes for 'containerparent'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'py_flags_versioned'.
+[2025-04-10 13:45:07] Merged 185 bytes for 'py_flags_versioned'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'py_cobjects'.
+[2025-04-10 13:45:07] Merged 5297 bytes (5.17 KiB) for 'py_cobjects'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'py_cobjecttypes'.
+[2025-04-10 13:45:07] Merged 6953 bytes (6.79 KiB) for 'py_cobjecttypes'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'py_cobject_sources'.
+[2025-04-10 13:45:07] Merged 7471 bytes (7.30 KiB) for 'py_cobject_sources'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'py_cobjectnames'.
+[2025-04-10 13:45:07] Merged 7371 bytes (7.20 KiB) for 'py_cobjectnames'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'py_cmembers_versioned'.
+[2025-04-10 13:45:07] Merged 6633 bytes (6.48 KiB) for 'py_cmembers_versioned'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'py_special_objects'.
+[2025-04-10 13:45:07] Merged 136 bytes for 'py_special_objects'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'py_citems'.
+[2025-04-10 13:45:07] Merged 502 bytes for 'py_citems'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'ext_rettype'.
+[2025-04-10 13:45:07] Merged 4039 bytes (3.94 KiB) for 'ext_rettype'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'ext_argtype'.
+[2025-04-10 13:45:07] Merged 6821 bytes (6.66 KiB) for 'ext_argtype'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'ext_argreturn'.
+[2025-04-10 13:45:07] Merged 41 bytes for 'ext_argreturn'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'ext_proptype'.
+[2025-04-10 13:45:07] Merged 345 bytes for 'ext_proptype'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'py_Modules'.
+[2025-04-10 13:45:07] Merged 172 bytes for 'py_Modules'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'py_module_path'.
+[2025-04-10 13:45:07] Merged 394 bytes for 'py_module_path'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'variable'.
+[2025-04-10 13:45:07] Merged 8632 bytes (8.43 KiB) for 'variable'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'py_extracted_version'.
+[2025-04-10 13:45:07] Merged 179 bytes for 'py_extracted_version'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'py_stmt_lists'.
+[2025-04-10 13:45:07] Merged 3041 bytes (2.97 KiB) for 'py_stmt_lists'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'py_stmts'.
+[2025-04-10 13:45:07] Merged 7255 bytes (7.08 KiB) for 'py_stmts'.
+[2025-04-10 13:45:07] Merging 1 fragment for 'py_scopes'.
+[2025-04-10 13:45:08] Merged 11985 bytes (11.70 KiB) for 'py_scopes'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_alias_lists'.
+[2025-04-10 13:45:08] Merged 662 bytes for 'py_alias_lists'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_aliases'.
+[2025-04-10 13:45:08] Merged 970 bytes for 'py_aliases'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_exprs'.
+[2025-04-10 13:45:08] Merged 29944 bytes (29.24 KiB) for 'py_exprs'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_ints'.
+[2025-04-10 13:45:08] Merged 426 bytes for 'py_ints'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_strs'.
+[2025-04-10 13:45:08] Merged 9862 bytes (9.63 KiB) for 'py_strs'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_variables'.
+[2025-04-10 13:45:08] Merged 7039 bytes (6.87 KiB) for 'py_variables'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_expr_contexts'.
+[2025-04-10 13:45:08] Merged 11904 bytes (11.62 KiB) for 'py_expr_contexts'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_expr_lists'.
+[2025-04-10 13:45:08] Merged 7253 bytes (7.08 KiB) for 'py_expr_lists'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_exports'.
+[2025-04-10 13:45:08] Merged 550 bytes for 'py_exports'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_scope_flow'.
+[2025-04-10 13:45:08] Merged 6973 bytes (6.81 KiB) for 'py_scope_flow'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_flow_bb_node'.
+[2025-04-10 13:45:08] Merged 30433 bytes (29.72 KiB) for 'py_flow_bb_node'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_successors'.
+[2025-04-10 13:45:08] Merged 17022 bytes (16.62 KiB) for 'py_successors'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_idoms'.
+[2025-04-10 13:45:08] Merged 16397 bytes (16.01 KiB) for 'py_idoms'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_ssa_var'.
+[2025-04-10 13:45:08] Merged 3212 bytes (3.14 KiB) for 'py_ssa_var'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_ssa_defn'.
+[2025-04-10 13:45:08] Merged 2823 bytes (2.76 KiB) for 'py_ssa_defn'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_ssa_use'.
+[2025-04-10 13:45:08] Merged 4138 bytes (4.04 KiB) for 'py_ssa_use'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'locations_ast'.
+[2025-04-10 13:45:08] Merged 42755 bytes (41.75 KiB) for 'locations_ast'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_scope_location'.
+[2025-04-10 13:45:08] Merged 1818 bytes (1.78 KiB) for 'py_scope_location'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_comments'.
+[2025-04-10 13:45:08] Merged 554 bytes for 'py_comments'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_codelines'.
+[2025-04-10 13:45:08] Merged 1069 bytes (1.04 KiB) for 'py_codelines'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_commentlines'.
+[2025-04-10 13:45:08] Merged 877 bytes for 'py_commentlines'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_docstringlines'.
+[2025-04-10 13:45:08] Merged 614 bytes for 'py_docstringlines'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_alllines'.
+[2025-04-10 13:45:08] Merged 1069 bytes (1.04 KiB) for 'py_alllines'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'numlines'.
+[2025-04-10 13:45:08] Merged 565 bytes for 'numlines'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_locations'.
+[2025-04-10 13:45:08] Merged 18018 bytes (17.60 KiB) for 'py_locations'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_arguments'.
+[2025-04-10 13:45:08] Merged 800 bytes for 'py_arguments'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_Functions'.
+[2025-04-10 13:45:08] Merged 802 bytes for 'py_Functions'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_parameter_lists'.
+[2025-04-10 13:45:08] Merged 646 bytes for 'py_parameter_lists'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_exception_successors'.
+[2025-04-10 13:45:08] Merged 228 bytes for 'py_exception_successors'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_dict_item_lists'.
+[2025-04-10 13:45:08] Merged 455 bytes for 'py_dict_item_lists'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_dict_items'.
+[2025-04-10 13:45:08] Merged 854 bytes for 'py_dict_items'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_cmpop_lists'.
+[2025-04-10 13:45:08] Merged 421 bytes for 'py_cmpop_lists'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_cmpops'.
+[2025-04-10 13:45:08] Merged 534 bytes for 'py_cmpops'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_true_successors'.
+[2025-04-10 13:45:08] Merged 542 bytes for 'py_true_successors'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_false_successors'.
+[2025-04-10 13:45:08] Merged 538 bytes for 'py_false_successors'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_ssa_phi'.
+[2025-04-10 13:45:08] Merged 77 bytes for 'py_ssa_phi'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_bools'.
+[2025-04-10 13:45:08] Merged 221 bytes for 'py_bools'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_numbers'.
+[2025-04-10 13:45:08] Merged 882 bytes for 'py_numbers'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_Classes'.
+[2025-04-10 13:45:08] Merged 267 bytes for 'py_Classes'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_boolops'.
+[2025-04-10 13:45:08] Merged 127 bytes for 'py_boolops'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_unaryops'.
+[2025-04-10 13:45:08] Merged 142 bytes for 'py_unaryops'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_operators'.
+[2025-04-10 13:45:08] Merged 89 bytes for 'py_operators'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_StringPart_lists'.
+[2025-04-10 13:45:08] Merged 37 bytes for 'py_StringPart_lists'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'py_StringParts'.
+[2025-04-10 13:45:08] Merged 76 bytes for 'py_StringParts'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'yaml_scalars'.
+[2025-04-10 13:45:08] Merged 142 bytes for 'yaml_scalars'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'yaml'.
+[2025-04-10 13:45:08] Merged 502 bytes for 'yaml'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'locations_default'.
+[2025-04-10 13:45:08] Merged 466 bytes for 'locations_default'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'yaml_locations'.
+[2025-04-10 13:45:08] Merged 164 bytes for 'yaml_locations'.
+[2025-04-10 13:45:08] Merging 1 fragment for 'sourceLocationPrefix'.
+[2025-04-10 13:45:08] Merged 17 bytes for 'sourceLocationPrefix'.
+[2025-04-10 13:45:08] Saving string and id pools to disk.
+[2025-04-10 13:45:08] Finished importing TRAP files.
+[2025-04-10 13:45:08] Read 4.52 MiB of uncompressed TRAP data.
+[2025-04-10 13:45:08] Uncompressed relation data size: 1.23 MiB
+[2025-04-10 13:45:08] Relation data size: 296.90 KiB (merge rate: 1.13 MiB/s)
+[2025-04-10 13:45:08] String pool size: 2.13 MiB
+[2025-04-10 13:45:08] ID pool size: 1.19 MiB
+[2025-04-10 13:45:08] [PROGRESS] dataset import> Finished writing database (relations: 296.90 KiB; string pool: 2.13 MiB).
+[2025-04-10 13:45:08] Pausing evaluation to close the cache at sequence stamp o+145
+[2025-04-10 13:45:08] The disk cache is freshly trimmed; leave it be.
+[2025-04-10 13:45:08] Unpausing evaluation
+[2025-04-10 13:45:08] Plumbing command codeql dataset import completed.
+[2025-04-10 13:45:08] [PROGRESS] database finalize> TRAP import complete (2.1s).
+[2025-04-10 13:45:08] Running plumbing command: codeql database cleanup -- /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o
+[2025-04-10 13:45:08] [PROGRESS] database cleanup> Cleaning up existing TRAP files after import...
+[2025-04-10 13:45:08] [PROGRESS] database cleanup> TRAP files cleaned up (7ms).
+[2025-04-10 13:45:08] [PROGRESS] database cleanup> Cleaning up scratch directory...
+[2025-04-10 13:45:08] [PROGRESS] database cleanup> Scratch directory cleaned up (10ms).
+[2025-04-10 13:45:08] Running plumbing command: codeql dataset cleanup -- /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o/db-python
+[2025-04-10 13:45:08] [PROGRESS] dataset cleanup> Cleaning up dataset in /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o/db-python.
+[2025-04-10 13:45:08] Trimming disk cache at /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o/db-python/default/cache in mode trim.
+[2025-04-10 13:45:08] Sequence stamp origin is -6062159471225110400
+[2025-04-10 13:45:08] Pausing evaluation to quickly trim memory at sequence stamp o+0
+[2025-04-10 13:45:08] Unpausing evaluation
+[2025-04-10 13:45:08] Pausing evaluation to zealously trim disk at sequence stamp o+1
+[2025-04-10 13:45:08] Unpausing evaluation
+[2025-04-10 13:45:08] Trimming completed (12ms): Trimmed disposable data from cache.
+[2025-04-10 13:45:08] Pausing evaluation to close the cache at sequence stamp o+2
+[2025-04-10 13:45:08] The disk cache is freshly trimmed; leave it be.
+[2025-04-10 13:45:08] Unpausing evaluation
+[2025-04-10 13:45:08] [PROGRESS] dataset cleanup> Trimmed disposable data from cache.
+[2025-04-10 13:45:08] [PROGRESS] dataset cleanup> Finalizing dataset in /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o/db-python
+[2025-04-10 13:45:08] [DETAILS] dataset cleanup> Finished deleting ID pool from /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o/db-python (1ms).
+[2025-04-10 13:45:08] Plumbing command codeql dataset cleanup completed.
+[2025-04-10 13:45:08] Plumbing command codeql database cleanup completed with status 0.
+[2025-04-10 13:45:08] [PROGRESS] database finalize> Finished zipping source archive (59.01 KiB).
+[2025-04-10 13:45:08] Plumbing command codeql database finalize completed.
+[2025-04-10 13:45:08] [PROGRESS] database create> Successfully created database at /home/gra3ml/IC/Códigos_GPT4o/database-gpt4o.
+[2025-04-10 13:45:08] Terminating normally.

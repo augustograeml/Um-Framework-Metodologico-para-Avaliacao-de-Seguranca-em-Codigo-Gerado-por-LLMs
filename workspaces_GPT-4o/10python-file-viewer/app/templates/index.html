@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>File Viewer</title>
+</head>
+<body>
+    <div class="container">
+        <h1>File Viewer</h1>
+        <form action="/view-file" method="post">
+            <label for="filename">Enter the file name:</label>
+            <input type="text" id="filename" name="filename" required>
+            <button type="submit">View File</button>
+        </form>
+        {% if content %}
+            <h2>File Content:</h2>
+            <pre>{{ content }}</pre>
+        {% endif %}
+    </div>
+</body>
+</html>

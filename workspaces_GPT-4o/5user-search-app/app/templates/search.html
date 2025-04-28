@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">User Search</h1>
+        <form id="searchForm" class="mt-4">
+            <div class="form-group">
+                <label for="searchInput">Search by Name or Email:</label>
+                <input type="text" class="form-control" id="searchInput" placeholder="Enter name or email" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <div id="results" class="mt-4"></div>
+    </div>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const query = document.getElementById('searchInput').value;
+
+            fetch(`/search?query=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    const resultsDiv = document.getElementById('results');
+                    resultsDiv.innerHTML = '';
+
+                    if (data.length === 0) {
+                        resultsDiv.innerHTML = '<p>No results found.</p>';
+                    } else {
+                        const ul = document.createElement('ul');
+                        data.forEach(user => {
+                            const li = document.createElement('li');
+                            li.textContent = `${user.name} - ${user.email}`;
+                            ul.appendChild(li);
+                        });
+                        resultsDiv.appendChild(ul);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                });
+        });
+    </script>
+</body>
+</html>

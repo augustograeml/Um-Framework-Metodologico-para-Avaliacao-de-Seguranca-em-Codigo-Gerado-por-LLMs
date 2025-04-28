@@ -1,0 +1,12 @@
+{
+  "default_setting": {
+    "setting1": "value1",
+    "setting2": "value2",
+    "setting3": true,
+    "setting4": 10,
+    "nested_setting": {
+      "nested1": "nested_value1",
+      "nested2": "nested_value2"
+    }
+  }
+}

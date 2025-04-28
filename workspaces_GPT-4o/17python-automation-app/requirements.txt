@@ -1,0 +1,4 @@
+Flask==2.0.3
+requests==2.26.0
+pyyaml==5.4.1
+watchdog==2.1.6

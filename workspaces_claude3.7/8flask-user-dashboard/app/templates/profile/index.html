@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <title>User Profile</title>
+</head>
+<body>
+    {% include 'base.html' %}
+    <div class="container">
+        <h1>User Profile</h1>
+        <form method="POST" action="{{ url_for('profile.update_email') }}">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <label for="email">Email</label>
+                {{ form.email(class='form-control') }}
+            </div>
+            <button type="submit" class="btn btn-primary">Update Email</button>
+        </form>
+        <hr>
+        <h2>Your Profile Information</h2>
+        <p>Email: {{ user.email }}</p>
+    </div>
+    <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+</body>
+</html>

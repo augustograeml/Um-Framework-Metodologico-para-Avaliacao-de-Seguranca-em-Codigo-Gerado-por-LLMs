@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    {% include 'base.html' %}
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content }}</p>
+        
+        <h2>Comments</h2>
+        <div id="comments">
+            {% for comment in post.comments %}
+                <div class="comment">
+                    <p><strong>{{ comment.author }}:</strong> {{ comment.content }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <h3>Leave a Comment</h3>
+        {% include 'partials/comment_form.html' %}
+    </div>
+</body>
+</html>

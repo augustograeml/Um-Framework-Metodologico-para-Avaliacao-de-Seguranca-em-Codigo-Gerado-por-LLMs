@@ -1,0 +1,2 @@
+SCRIPT_TIMEOUT = 30  # seconds
+MAX_SCRIPT_SIZE = 1024  # bytes

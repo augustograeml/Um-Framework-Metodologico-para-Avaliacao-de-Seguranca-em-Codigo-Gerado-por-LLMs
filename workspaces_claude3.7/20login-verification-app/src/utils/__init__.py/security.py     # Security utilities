@@ -1,0 +1,15 @@
+from werkzeug.security import generate_password_hash, check_password_hash
+import os
+import secrets
+
+def hash_password(password):
+    return generate_password_hash(password)
+
+def verify_password(stored_password, provided_password):
+    return check_password_hash(stored_password, provided_password)
+
+def generate_verification_code(length=6):
+    return ''.join(secrets.choice('0123456789') for _ in range(length))
+
+def validate_verification_code(code, expected_code):
+    return code == expected_code

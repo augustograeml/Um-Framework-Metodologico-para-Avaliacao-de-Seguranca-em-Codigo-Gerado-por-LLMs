@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Dashboard App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Flask Dashboard App</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('account_settings') }}">Account Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Landing Page</h2>
+        <p>This is the landing page of the Flask Dashboard App. Navigate to the dashboard or account settings to manage your account.</p>
+    </main>
+    <footer>
+        <p>&copy; 2023 Flask Dashboard App</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

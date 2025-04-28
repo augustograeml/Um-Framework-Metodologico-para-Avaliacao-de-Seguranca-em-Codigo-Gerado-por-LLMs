@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Document</h1>
+        <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div>
+                {{ form.file.label }}<br>
+                {{ form.file() }}<br>
+                {% for error in form.file.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <div>
+                <input type="submit" value="Upload">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

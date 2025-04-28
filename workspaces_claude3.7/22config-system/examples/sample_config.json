@@ -1,0 +1,25 @@
+{
+  "name": "Sample Configuration",
+  "version": "1.0",
+  "description": "This is a sample configuration file for the configuration system.",
+  "settings": {
+    "option1": true,
+    "option2": "value",
+    "option3": [1, 2, 3]
+  },
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "username": "user",
+    "password": "pass"
+  },
+  "features": {
+    "featureA": {
+      "enabled": true,
+      "threshold": 10
+    },
+    "featureB": {
+      "enabled": false
+    }
+  }
+}

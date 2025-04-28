@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Diagnostic System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Remote Diagnostic System</h1>
+        <form id="commandForm" method="POST" action="/execute">
+            <label for="command">Enter Command:</label>
+            <input type="text" id="command" name="command" required>
+            <button type="submit">Execute</button>
+        </form>
+        <div id="result">
+            {% if result %}
+                <h2>Command Output:</h2>
+                <pre>{{ result }}</pre>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

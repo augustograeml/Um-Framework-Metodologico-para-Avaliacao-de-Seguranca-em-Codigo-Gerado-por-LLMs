@@ -1,0 +1,11 @@
+INFO 2023-10-01 12:00:00 User logged in: user1
+ERROR 2023-10-01 12:05:00 Failed to load resource: /api/data
+WARNING 2023-10-01 12:10:00 Disk space running low on server
+INFO 2023-10-01 12:15:00 User logged out: user1
+DEBUG 2023-10-01 12:20:00 Cache cleared successfully
+ERROR 2023-10-01 12:25:00 Database connection failed
+INFO 2023-10-01 12:30:00 User logged in: user2
+WARNING 2023-10-01 12:35:00 High memory usage detected
+INFO 2023-10-01 12:40:00 User logged out: user2
+DEBUG 2023-10-01 12:45:00 Scheduled task executed
+ERROR 2023-10-01 12:50:00 API request timeout

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>User Profile</h1>
+        <div class="profile-info">
+            <h2>{{ user.name }}</h2>
+            <p>{{ user.bio }}</p>
+        </div>
+        <a href="{{ url_for('profile.edit') }}" class="edit-button">Edit Profile</a>
+    </div>
+</body>
+</html>

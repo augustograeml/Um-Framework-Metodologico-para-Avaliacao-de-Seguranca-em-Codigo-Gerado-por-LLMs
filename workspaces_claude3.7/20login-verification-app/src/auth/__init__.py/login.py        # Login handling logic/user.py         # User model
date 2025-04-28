@@ -1,0 +1,13 @@
+class LoginHandler:
+    def __init__(self, user_model):
+        self.user_model = user_model
+
+    def login_user(self, username, password):
+        user = self.user_model.get_user_by_username(username)
+        if user and user.verify_password(password):
+            return True
+        return False
+
+    def logout_user(self):
+        # Logic for logging out the user
+        pass

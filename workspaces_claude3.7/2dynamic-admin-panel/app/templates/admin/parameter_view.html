@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parameter View</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Parameter View</h1>
+        <div class="parameters">
+            {% if parameters %}
+                <ul>
+                    {% for key, value in parameters.items() %}
+                        <li><strong>{{ key }}:</strong> {{ value }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No parameters provided.</p>
+            {% endif %}
+        </div>
+        <div class="customization">
+            <h2>Customize Interface</h2>
+            <form method="GET" action="{{ url_for('admin.parameter_view') }}">
+                <label for="bg_color">Background Color:</label>
+                <input type="text" id="bg_color" name="bg_color" placeholder="Enter a color">
+                <button type="submit">Apply</button>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/dynamic_ui.js') }}"></script>
+</body>
+</html>
