@@ -14,8 +14,7 @@ fi
 TARGET_DIR="$(realpath "$TARGET_DIR")"
 
 CODEQL_VERSION=$(codeql version --format=terse 2>/dev/null || codeql version | head -1)
-if[$CODEQL_VERSION -neq 0];then
-curl https://github.com/github/codeql-cli-binaries/releases/download/v2.26.4/codeql-linux64.zip > unzip
+
 echo "[INFO] CodeQL CLI: $CODEQL_VERSION"
 
 WORK_DIR="$(pwd)/codeql-output"
